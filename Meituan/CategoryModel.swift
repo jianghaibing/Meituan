@@ -16,6 +16,6 @@ class CategoryModel: NSObject {
     var small_highlighted_icon:String!
     var small_icon:String!
     var map_icon:String?
-    var subcategories:NSArray?
+    var subcategories:[String]?
 
 }

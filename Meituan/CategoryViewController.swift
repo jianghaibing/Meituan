@@ -13,6 +13,8 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
     var categories:NSMutableArray?
     @IBOutlet weak var tableOne: UITableView!
     @IBOutlet weak var tableTwo: UITableView!
+    var selectedCategory:CategoryModel?
+    private var subCategories:[String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,22 +27,6 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
         tableTwo.dataSource = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -49,19 +35,46 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
         if tableView == tableOne {
             return (categories?.count)!
         }else{
-            return 10
+            if subCategories != nil {
+                return subCategories!.count
+            }else{
+                return 0
+            }
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         if tableView == tableOne{
+            let category = categories![indexPath.row] as! CategoryModel
             let cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath)
-            cell.textLabel?.text = categories![indexPath.row].name
+            cell.textLabel?.text = category.name
+            cell.textLabel?.backgroundColor = UIColor.clearColor()
+            cell.imageView?.image = UIImage(named: (category.small_icon)!)
+            cell.backgroundView = UIImageView(image: UIImage(named: "bg_dropdown_leftpart"))
+            cell.selectedBackgroundView = UIImageView(image: UIImage(named: "bg_dropdown_left_selected"))
+            if let _ = category.subcategories {
+                cell.accessoryType = .DisclosureIndicator
+            }else{
+                cell.accessoryType = .None
+            }
+            
             return cell
         }else {
             let cell = tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath)
-            cell.textLabel?.text = "\(indexPath.row)"
+            cell.textLabel?.backgroundColor = UIColor.clearColor()
+            cell.backgroundView = UIImageView(image: UIImage(named: "bg_dropdown_rightpart"))
+            cell.selectedBackgroundView = UIImageView(image: UIImage(named: "bg_dropdown_right_selected"))
+            cell.textLabel?.text = subCategories![indexPath.row]
             return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if tableView == tableOne{
+            selectedCategory = categories![indexPath.row] as? CategoryModel
+            subCategories = selectedCategory?.subcategories
+            tableTwo.reloadData()
         }
     }
     

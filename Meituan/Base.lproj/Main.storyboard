@@ -134,6 +134,11 @@
                                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" image="icon_district"/>
                                             <state key="highlighted" image="icon_district_highlighted"/>
+                                            <connections>
+                                                <segue destination="K8d-w3-HOA" kind="popoverPresentation" popoverAnchorBarButtonItem="DEM-pV-AA5" id="oaW-5h-ijb">
+                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                </segue>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -233,6 +238,104 @@
             </objects>
             <point key="canvasLocation" x="1138" y="-41"/>
         </scene>
+        <!--District View Controller-->
+        <scene sceneID="TfC-MI-hxq">
+            <objects>
+                <viewController id="K8d-w3-HOA" customClass="DistrictViewController" customModule="Meituan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V4I-vi-MKE"/>
+                        <viewControllerLayoutGuide type="bottom" id="pdO-zk-2ZV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lap-hW-wjU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r38-TH-TO4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL4-fO-WMn">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="选择城市" image="btn_changeCity">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted" title="切换城市"/>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cell_rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-v8-XB2">
+                                        <rect key="frame" x="573" y="14" width="17" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="17" id="Zgu-l1-yLY"/>
+                                            <constraint firstAttribute="height" constant="17" id="nXU-VR-Ki1"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="GQ5-v8-XB2" firstAttribute="centerY" secondItem="r38-TH-TO4" secondAttribute="centerY" id="43u-b9-xyf"/>
+                                    <constraint firstItem="kL4-fO-WMn" firstAttribute="leading" secondItem="r38-TH-TO4" secondAttribute="leading" id="Cw5-jD-KEo"/>
+                                    <constraint firstAttribute="bottom" secondItem="kL4-fO-WMn" secondAttribute="bottom" id="FtC-i0-fif"/>
+                                    <constraint firstAttribute="height" constant="44" id="Gm2-Vw-bVk"/>
+                                    <constraint firstAttribute="trailing" secondItem="GQ5-v8-XB2" secondAttribute="trailing" constant="10" id="KLy-4k-1nr"/>
+                                    <constraint firstItem="kL4-fO-WMn" firstAttribute="top" secondItem="r38-TH-TO4" secondAttribute="top" id="ajD-7B-0Ma"/>
+                                    <constraint firstAttribute="trailing" secondItem="kL4-fO-WMn" secondAttribute="trailing" id="gg1-jM-3Yt"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hvo-EP-0PL">
+                                <rect key="frame" x="0.0" y="44" width="300" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="leftCell" id="6Hb-ZE-W3L">
+                                        <rect key="frame" x="0.0" y="28" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Hb-ZE-W3L" id="s1Q-J3-XyW">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O5S-JK-ksx">
+                                <rect key="frame" x="300" y="44" width="300" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rightCell" id="vik-GA-mgl">
+                                        <rect key="frame" x="0.0" y="28" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vik-GA-mgl" id="bTe-b3-Qbc">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pdO-zk-2ZV" firstAttribute="top" secondItem="O5S-JK-ksx" secondAttribute="bottom" id="3pn-p9-eH5"/>
+                            <constraint firstItem="pdO-zk-2ZV" firstAttribute="top" secondItem="Hvo-EP-0PL" secondAttribute="bottom" id="4Zx-IX-OVD"/>
+                            <constraint firstItem="Hvo-EP-0PL" firstAttribute="leading" secondItem="lap-hW-wjU" secondAttribute="leading" id="5wA-ng-lzY"/>
+                            <constraint firstItem="r38-TH-TO4" firstAttribute="top" secondItem="V4I-vi-MKE" secondAttribute="bottom" id="Jz2-XE-580"/>
+                            <constraint firstItem="Hvo-EP-0PL" firstAttribute="top" secondItem="r38-TH-TO4" secondAttribute="bottom" id="PFw-sE-rob"/>
+                            <constraint firstAttribute="trailing" secondItem="r38-TH-TO4" secondAttribute="trailing" id="Tnc-JC-Njr"/>
+                            <constraint firstItem="r38-TH-TO4" firstAttribute="leading" secondItem="lap-hW-wjU" secondAttribute="leading" id="m9m-nq-i9k"/>
+                            <constraint firstAttribute="trailing" secondItem="O5S-JK-ksx" secondAttribute="trailing" id="mJB-hB-MOp"/>
+                            <constraint firstItem="O5S-JK-ksx" firstAttribute="width" secondItem="Hvo-EP-0PL" secondAttribute="width" id="orn-Eo-Uy2"/>
+                            <constraint firstItem="Hvo-EP-0PL" firstAttribute="width" secondItem="lap-hW-wjU" secondAttribute="width" multiplier="0.5" id="q4H-ad-o9G"/>
+                            <constraint firstItem="O5S-JK-ksx" firstAttribute="top" secondItem="r38-TH-TO4" secondAttribute="bottom" id="r5U-Rb-iDJ"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="400" height="382"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="leftTable" destination="Hvo-EP-0PL" id="BSh-p5-yVW"/>
+                        <outlet property="rightTable" destination="O5S-JK-ksx" id="QVa-T7-H4M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zyf-B6-68B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1792" y="-700"/>
+        </scene>
         <!--Category View Controller-->
         <scene sceneID="MEm-XB-L7n">
             <objects>
@@ -245,7 +348,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ine-No-ayh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ine-No-ayh">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -253,13 +356,13 @@
                                         <rect key="frame" x="0.0" y="28" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HRs-3W-BzE" id="rJZ-9F-EiE">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-OZ-CbV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-OZ-CbV">
                                 <rect key="frame" x="300" y="0.0" width="300" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -267,7 +370,7 @@
                                         <rect key="frame" x="0.0" y="28" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RYM-no-W0x" id="WLM-zG-D62">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -286,6 +389,7 @@
                             <constraint firstItem="05L-kw-XGX" firstAttribute="top" secondItem="ine-No-ayh" secondAttribute="bottom" id="qEJ-NZ-6wg"/>
                         </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="400" height="382"/>
                     <connections>
                         <outlet property="tableOne" destination="ine-No-ayh" id="nRe-zB-U0m"/>
                         <outlet property="tableTwo" destination="t1j-OZ-CbV" id="sbX-Zq-lZQ"/>
@@ -316,6 +420,8 @@
     </scenes>
     <resources>
         <image name="bg_navigationBar_normal" width="124" height="124"/>
+        <image name="btn_changeCity" width="30" height="30"/>
+        <image name="icon_cell_rightArrow" width="17" height="17"/>
         <image name="icon_district" width="30" height="30"/>
         <image name="icon_district_highlighted" width="30" height="30"/>
         <image name="icon_map" width="30" height="30"/>
