@@ -261,6 +261,9 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <state key="highlighted" title="切换城市"/>
+                                        <connections>
+                                            <segue destination="vfw-AM-ZgB" kind="presentation" modalPresentationStyle="formSheet" id="hJo-8J-nEC"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cell_rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-v8-XB2">
                                         <rect key="frame" x="573" y="14" width="17" height="17"/>
@@ -335,6 +338,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyf-B6-68B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792" y="-700"/>
+        </scene>
+        <!--切换城市-->
+        <scene sceneID="KsJ-JQ-RbB">
+            <objects>
+                <viewController id="rql-bR-s8g" customClass="CityViewController" customModule="Meituan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k5G-Y4-GF2"/>
+                        <viewControllerLayoutGuide type="bottom" id="52X-6L-Heu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5mU-V2-lfA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="请输入城市名或拼音" backgroundImage="bg_login_textfield" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-fn-55a">
+                                <rect key="frame" x="10" y="54" width="580" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="p0s-Uv-5wb"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rql-bR-s8g" id="Rac-SE-R46"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pbD-F3-a1X">
+                                <rect key="frame" x="0.0" y="98" width="600" height="502"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="wBl-7e-hgl">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wBl-7e-hgl" id="poQ-ge-H0c">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNp-yt-8Xz">
+                                <rect key="frame" x="0.0" y="98" width="600" height="502"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bLa-fn-55a" firstAttribute="leading" secondItem="5mU-V2-lfA" secondAttribute="leading" constant="10" id="0Yw-bd-8wr"/>
+                            <constraint firstItem="GNp-yt-8Xz" firstAttribute="leading" secondItem="5mU-V2-lfA" secondAttribute="leading" id="Gbj-d0-PHH"/>
+                            <constraint firstItem="pbD-F3-a1X" firstAttribute="top" secondItem="bLa-fn-55a" secondAttribute="bottom" constant="10" id="Ge8-3c-qjZ"/>
+                            <constraint firstAttribute="trailing" secondItem="GNp-yt-8Xz" secondAttribute="trailing" id="JQY-Iv-ncg"/>
+                            <constraint firstItem="GNp-yt-8Xz" firstAttribute="top" secondItem="bLa-fn-55a" secondAttribute="bottom" constant="10" id="QrN-7o-yeA"/>
+                            <constraint firstAttribute="trailing" secondItem="bLa-fn-55a" secondAttribute="trailing" constant="10" id="Vse-X3-Fyg"/>
+                            <constraint firstItem="52X-6L-Heu" firstAttribute="top" secondItem="GNp-yt-8Xz" secondAttribute="bottom" id="ZOf-Ky-Q4W"/>
+                            <constraint firstItem="pbD-F3-a1X" firstAttribute="leading" secondItem="5mU-V2-lfA" secondAttribute="leading" id="bWA-Wd-nO0"/>
+                            <constraint firstItem="bLa-fn-55a" firstAttribute="top" secondItem="k5G-Y4-GF2" secondAttribute="bottom" constant="10" id="rgB-bo-J4B"/>
+                            <constraint firstItem="52X-6L-Heu" firstAttribute="top" secondItem="pbD-F3-a1X" secondAttribute="bottom" id="vQT-B8-vD8"/>
+                            <constraint firstAttribute="trailing" secondItem="pbD-F3-a1X" secondAttribute="trailing" id="wp1-bP-ANZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="切换城市" id="vw0-X4-PRN">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="wXo-ki-FE5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k5R-Ao-bYp">
+                                <rect key="frame" x="20" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_navigation_close"/>
+                                <state key="highlighted" image="btn_navigation_close_hl"/>
+                                <connections>
+                                    <action selector="closeVC:" destination="rql-bR-s8g" eventType="touchUpInside" id="Lhd-1F-Dkf"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cityTable" destination="pbD-F3-a1X" id="umJ-v4-8yr"/>
+                        <outlet property="cover" destination="GNp-yt-8Xz" id="s5D-jK-VPF"/>
+                        <outlet property="searchBar" destination="bLa-fn-55a" id="tBV-m4-ihJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H8D-BE-exX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3165" y="-700"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="MEm-XB-L7n">
@@ -417,10 +499,31 @@
             </objects>
             <point key="canvasLocation" x="396" y="-48"/>
         </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="htW-Co-wHf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vfw-AM-ZgB" customClass="BaseNavigationController" customModule="Meituan" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H78-bc-alb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rql-bR-s8g" kind="relationship" relationship="rootViewController" id="8Mz-hZ-GJi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqA-Lk-dRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2504" y="-700"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bg_login_textfield" width="9" height="11"/>
         <image name="bg_navigationBar_normal" width="124" height="124"/>
         <image name="btn_changeCity" width="30" height="30"/>
+        <image name="btn_navigation_close" width="30" height="30"/>
+        <image name="btn_navigation_close_hl" width="30" height="30"/>
         <image name="icon_cell_rightArrow" width="17" height="17"/>
         <image name="icon_district" width="30" height="30"/>
         <image name="icon_district_highlighted" width="30" height="30"/>

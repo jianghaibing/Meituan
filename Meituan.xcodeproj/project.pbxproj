@@ -21,6 +21,10 @@
 		0910698D1BA5BF30005F1AB5 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 091069891BA5BF30005F1AB5 /* cities.plist */; settings = {ASSET_TAGS = (); }; };
 		0910698E1BA5BF30005F1AB5 /* cityGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0910698A1BA5BF30005F1AB5 /* cityGroups.plist */; settings = {ASSET_TAGS = (); }; };
 		0910698F1BA5BF30005F1AB5 /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0910698B1BA5BF30005F1AB5 /* sorts.plist */; settings = {ASSET_TAGS = (); }; };
+		092699BC1BA8485D00E6A0B1 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092699BB1BA8485D00E6A0B1 /* CityViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		092699BE1BA84EA300E6A0B1 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092699BD1BA84EA300E6A0B1 /* CityModel.swift */; settings = {ASSET_TAGS = (); }; };
+		092699C01BA84F7400E6A0B1 /* RegionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092699BF1BA84F7400E6A0B1 /* RegionsModel.swift */; settings = {ASSET_TAGS = (); }; };
+		092699C21BA8536000E6A0B1 /* CityGroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092699C11BA8536000E6A0B1 /* CityGroupsModel.swift */; settings = {ASSET_TAGS = (); }; };
 		0980EF181BA720A200F7F8C4 /* DistrictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0980EF171BA720A200F7F8C4 /* DistrictViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0BDFC3921CB16138D1214116 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444E1CF18A3853B9E5BFC3CF /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -43,6 +47,10 @@
 		091069891BA5BF30005F1AB5 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
 		0910698A1BA5BF30005F1AB5 /* cityGroups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityGroups.plist; sourceTree = "<group>"; };
 		0910698B1BA5BF30005F1AB5 /* sorts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sorts.plist; sourceTree = "<group>"; };
+		092699BB1BA8485D00E6A0B1 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		092699BD1BA84EA300E6A0B1 /* CityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		092699BF1BA84F7400E6A0B1 /* RegionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionsModel.swift; sourceTree = "<group>"; };
+		092699C11BA8536000E6A0B1 /* CityGroupsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityGroupsModel.swift; sourceTree = "<group>"; };
 		0980EF171BA720A200F7F8C4 /* DistrictViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistrictViewController.swift; sourceTree = "<group>"; };
 		130C89496EDA381FEE6D6AA0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		215F9471DD475FD084516009 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 				0910694E1BA5999E005F1AB5 /* HomeCollectionViewController.swift */,
 				091069551BA5B270005F1AB5 /* CategoryViewController.swift */,
 				0980EF171BA720A200F7F8C4 /* DistrictViewController.swift */,
+				092699BB1BA8485D00E6A0B1 /* CityViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -128,6 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				091069831BA5B9FB005F1AB5 /* CategoryModel.swift */,
+				092699C11BA8536000E6A0B1 /* CityGroupsModel.swift */,
+				092699BD1BA84EA300E6A0B1 /* CityModel.swift */,
+				092699BF1BA84F7400E6A0B1 /* RegionsModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -271,12 +283,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				091069841BA5B9FB005F1AB5 /* CategoryModel.swift in Sources */,
+				092699C01BA84F7400E6A0B1 /* RegionsModel.swift in Sources */,
 				0980EF181BA720A200F7F8C4 /* DistrictViewController.swift in Sources */,
 				091069561BA5B270005F1AB5 /* CategoryViewController.swift in Sources */,
+				092699BC1BA8485D00E6A0B1 /* CityViewController.swift in Sources */,
+				092699C21BA8536000E6A0B1 /* CityGroupsModel.swift in Sources */,
 				091069511BA59A0A005F1AB5 /* BaseNavigationController.swift in Sources */,
 				0910694F1BA5999E005F1AB5 /* HomeCollectionViewController.swift in Sources */,
 				0910693A1BA58BFA005F1AB5 /* AppDelegate.swift in Sources */,
 				091069421BA58BFA005F1AB5 /* Meituan.xcdatamodeld in Sources */,
+				092699BE1BA84EA300E6A0B1 /* CityModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
