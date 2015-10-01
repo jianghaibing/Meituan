@@ -11,33 +11,64 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class HomeCollectionViewController: UICollectionViewController {
-
+    @IBOutlet weak var categoryLable: UILabel!
+    @IBOutlet weak var subcategoryLable: UILabel!
+    @IBOutlet weak var categoryIconButton: UIButton!
+    @IBOutlet weak var cityLable: UILabel!
+    @IBOutlet weak var districtLable: UILabel!
+    @IBOutlet weak var sortsLable: UILabel!
+    var districtName:String?
+    var cityName:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        cityName = "北京"
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "cityDidChanged:", name: changeCityNotification, object: nil)
         // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func cityDidChanged(notification:NSNotification){
+        cityName = notification.userInfo![selectedCityName] as? String
+        cityLable.text = cityName! + " - 全部"
+        districtLable.text = "全部"
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: changeCityNotification, object: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    @IBAction func unwindFromDistrict(segue:UIStoryboardSegue){
+        let districtVC = segue.sourceViewController as? DistrictViewController
+        districtName = districtVC?.selectedRegoinName
+        cityLable.text = cityName! + " - " + districtName!
+        districtLable.text = districtVC?.selectedSubregoinName
     }
-    */
+    
+    @IBAction func unwindFromCategory(segue:UIStoryboardSegue){
+        let categoryVC = segue.sourceViewController as? CategoryViewController
+        categoryLable.text = categoryVC?.selectedCategoryName
+        subcategoryLable.text = categoryVC?.selectedSubCategoryName
+        categoryIconButton.setImage(UIImage(named: categoryVC!.selectedIcon!), forState: .Normal)
+        categoryIconButton.setImage(UIImage(named: categoryVC!.selectedHHighlightedIcon!), forState: .Highlighted)
+        
+    }
+    
+    @IBAction func unwindFromSorts(segue:UIStoryboardSegue){
+        let sortsVc = segue.sourceViewController as? SortsTableViewController
+        sortsLable.text = sortsVc?.selectedSort?.label
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "district" {
+            let districtVC = segue.destinationViewController as? DistrictViewController
+            districtVC?.currentCityName = cityName
+        }
+    }
 
     // MARK: UICollectionViewDataSource
 

@@ -13,10 +13,7 @@ class CityModel: NSObject {
     var name:String!
     var pinYin:String!
     var pinYinHead:String!
-    var regions:NSArray!
+    var regions:NSMutableArray!
     
-    override static func objectClassInArray() -> [NSObject : AnyObject]! {
-        return ["regions" : RegionsModel()]
-    }
 
 }

@@ -15,16 +15,32 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
     @IBOutlet weak var tableTwo: UITableView!
     var selectedCategory:CategoryModel?
     private var subCategories:[String]?
+    var selectedCategoryName:String?
+    var selectedSubCategoryName:String?
+    var selectedIcon:String?
+    var selectedHHighlightedIcon:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        categories = CategoryModel.objectArrayWithFilename("categories.plist")
+        categories = MetaDataTool().categories
         tableOne.delegate = self
         tableOne.dataSource = self
         
         tableTwo.delegate = self
         tableTwo.dataSource = self
+        
+        selectedSubCategoryName = "全部"
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "cityDidChanged:", name: changeCityNotification, object: nil)
+    }
+    
+    func cityDidChanged(notification:NSNotification){
+        let city = notification.userInfo![selectedCityName]
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: changeCityNotification, object: nil)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -33,13 +49,9 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == tableOne {
-            return (categories?.count)!
+            return categories?.count ?? 0
         }else{
-            if subCategories != nil {
-                return subCategories!.count
-            }else{
-                return 0
-            }
+            return subCategories?.count ?? 0
         }
     }
     
@@ -75,6 +87,17 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
             selectedCategory = categories![indexPath.row] as? CategoryModel
             subCategories = selectedCategory?.subcategories
             tableTwo.reloadData()
+            selectedCategoryName = selectedCategory?.name
+            selectedIcon = selectedCategory?.icon
+            selectedHHighlightedIcon = selectedCategory?.highlighted_icon
+            if subCategories == nil {
+                performSegueWithIdentifier("unwindFromCategory", sender: self)
+            }
+            
+        }else{
+            subCategories = selectedCategory?.subcategories
+            selectedSubCategoryName = subCategories![indexPath.row]
+            performSegueWithIdentifier("unwindFromCategory", sender: self)
         }
     }
     

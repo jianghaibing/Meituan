@@ -14,6 +14,13 @@ class CityViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var searchBar: UISearchBar!
     
     var cityGroups:NSArray!
+    
+    lazy var searchResult:SearchResultTableViewController = {
+        var searchResult = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("searchResult") as! SearchResultTableViewController
+        self.addChildViewController(searchResult)
+        self.view.addSubview(searchResult.view)
+        return searchResult
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +29,14 @@ class CityViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cityTable.sectionIndexColor = UIColor.blackColor()
         //点击cover时让searchBar失去焦点
         cover.addGestureRecognizer(UITapGestureRecognizer(target: searchBar, action: Selector("resignFirstResponder")))
-        cityGroups = CityGroupsModel.objectArrayWithFilename("cityGroups.plist")
+        cityGroups = MetaDataTool().cityGroups
+        searchBar.tintColor = UIColor.colorWithRGB(77, green: 193, blue: 151, alpha: 1)
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchBar.resignFirstResponder()
     }
     
     @IBAction func closeVC(sender: UIButton) {
@@ -40,8 +54,8 @@ class CityViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cityCell", forIndexPath:indexPath)
         let cityGroup = cityGroups[indexPath.section] as! CityGroupsModel
-        let cities = cityGroup.cities[indexPath.row]
-        cell.textLabel?.text = cities
+        let city = cityGroup.cities[indexPath.row]
+        cell.textLabel?.text = city
         return cell
     }
     
@@ -56,15 +70,48 @@ class CityViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.navigationController?.navigationBarHidden = true
-        cover.hidden = false
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.cover.hidden = false
+        }
         searchBar.backgroundImage = UIImage(named: "bg_login_textfield_hl")
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         self.navigationController?.navigationBarHidden = false
-        cover.hidden = true
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.cover.hidden = true
+        }
         searchBar.backgroundImage = UIImage(named: "bg_login_textfield")
     }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchResult.view.removeFromSuperview()
+        searchBar.text = ""
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            searchResult.view.hidden = true
+        }else{
+            searchResult.view.hidden = false
+            searchResult.searchText = searchText
+            constrain(searchResult.view,searchBar) { (resultView,search) -> () in
+                resultView.left == resultView.superview!.left
+                resultView.right == resultView.superview!.right
+                resultView.bottom == resultView.superview!.bottom
+                resultView.top == search.bottom + 10
+            }
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cityGroup = cityGroups[indexPath.section] as! CityGroupsModel
+        let cityName = cityGroup.cities[indexPath.row]
+        NSNotificationCenter.defaultCenter().postNotificationName(changeCityNotification, object: nil, userInfo: [selectedCityName:cityName])
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

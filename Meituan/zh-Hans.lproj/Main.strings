@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "人气最高"; ObjectID = "2gl-4k-Ohy"; */
+"2gl-4k-Ohy.text" = "人气最高";
+
+/* Class = "UILabel"; text = "休闲娱乐"; ObjectID = "2uK-Uq-w6Q"; */
+"2uK-Uq-w6Q.text" = "休闲娱乐";
+
+/* Class = "UILabel"; text = "全部"; ObjectID = "9H9-Oi-T05"; */
+"9H9-Oi-T05.text" = "全部";
+
+/* Class = "UILabel"; text = "北京-朝阳区"; ObjectID = "AaH-Zm-lkl"; */
+"AaH-Zm-lkl.text" = "北京-朝阳区";
+
+/* Class = "UILabel"; text = "全部"; ObjectID = "ZfC-l7-FWd"; */
+"ZfC-l7-FWd.text" = "全部";
+
+/* Class = "UISearchBar"; placeholder = "请输入城市名或拼音"; ObjectID = "bLa-fn-55a"; */
+"bLa-fn-55a.placeholder" = "请输入城市名或拼音";
+
+/* Class = "UILabel"; text = "排序"; ObjectID = "gV0-xm-grw"; */
+"gV0-xm-grw.text" = "排序";
+
+/* Class = "UIButton"; highlightedTitle = "切换城市"; ObjectID = "kL4-fO-WMn"; */
+"kL4-fO-WMn.highlightedTitle" = "切换城市";
+
+/* Class = "UIButton"; normalTitle = "选择城市"; ObjectID = "kL4-fO-WMn"; */
+"kL4-fO-WMn.normalTitle" = "选择城市";
+
+/* Class = "UINavigationItem"; title = "切换城市"; ObjectID = "vw0-X4-PRN"; */
+"vw0-X4-PRN.title" = "切换城市";
