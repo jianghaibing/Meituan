@@ -19,6 +19,7 @@ class HomeCollectionViewController: UICollectionViewController {
     @IBOutlet weak var sortsLable: UILabel!
     var districtName:String?
     var cityName:String?
+    var currentSelectIndex:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,6 @@ class HomeCollectionViewController: UICollectionViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "cityDidChanged:", name: changeCityNotification, object: nil)
         // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
     }
     
     func cityDidChanged(notification:NSNotification){
@@ -61,12 +61,17 @@ class HomeCollectionViewController: UICollectionViewController {
     @IBAction func unwindFromSorts(segue:UIStoryboardSegue){
         let sortsVc = segue.sourceViewController as? SortsTableViewController
         sortsLable.text = sortsVc?.selectedSort?.label
+        currentSelectIndex = sortsVc?.currentSelectIndex
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "district" {
             let districtVC = segue.destinationViewController as? DistrictViewController
             districtVC?.currentCityName = cityName
+        }
+        if segue.identifier == "sort" {
+            let sortsVc = segue.destinationViewController as? SortsTableViewController
+            sortsVc?.currentSelectIndex = currentSelectIndex ?? 3
         }
     }
 

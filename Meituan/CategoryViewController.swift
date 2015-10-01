@@ -63,6 +63,7 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
             cell.textLabel?.text = category.name
             cell.textLabel?.backgroundColor = UIColor.clearColor()
             cell.imageView?.image = UIImage(named: (category.small_icon)!)
+            cell.imageView?.highlightedImage = UIImage(named: category.small_highlighted_icon)
             cell.backgroundView = UIImageView(image: UIImage(named: "bg_dropdown_leftpart"))
             cell.selectedBackgroundView = UIImageView(image: UIImage(named: "bg_dropdown_left_selected"))
             if let _ = category.subcategories {

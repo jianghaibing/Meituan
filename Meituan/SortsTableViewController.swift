@@ -12,6 +12,7 @@ class SortsTableViewController: UITableViewController {
     
     var sorts:NSMutableArray?
     var selectedSort:SortsModel?
+    var currentSelectIndex:Int?
     
 
     override func viewDidLoad() {
@@ -43,7 +44,10 @@ class SortsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         let sort = sorts![indexPath.row] as! SortsModel
         let sortButton = cell.viewWithTag(99) as! SortButton
-        sortButton.selectedIndex = indexPath.row
+        if indexPath.row == currentSelectIndex ?? 0{
+            sortButton.selected = true
+        }
+        sortButton.selectedSort = sort
         sortButton.setTitle(sort.label, forState: .Normal)
         sortButton.addTarget(self, action: "buttonClick:", forControlEvents: .TouchUpInside)
         return cell
@@ -51,7 +55,9 @@ class SortsTableViewController: UITableViewController {
     
     
     func buttonClick(sender:SortButton){
-        selectedSort = sorts![sender.selectedIndex!] as? SortsModel
+        selectedSort = sender.selectedSort
+        sender.selected = true
+        currentSelectIndex = selectedSort!.value.integerValue - 1
         performSegueWithIdentifier("unwindFromSorts", sender: self)
     }
 

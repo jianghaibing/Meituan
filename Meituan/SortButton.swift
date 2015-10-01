@@ -10,6 +10,6 @@ import UIKit
 
 class SortButton: UIButton {
 
-    var selectedIndex:Int?
+    var selectedSort:SortsModel?
 
 }

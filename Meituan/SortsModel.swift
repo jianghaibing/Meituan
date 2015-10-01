@@ -11,6 +11,6 @@ import UIKit
 class SortsModel: NSObject {
     
     var label:String!
-    var value:Int!
+    var value:NSNumber!
 
 }

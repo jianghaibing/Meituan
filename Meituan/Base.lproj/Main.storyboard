@@ -179,7 +179,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="人气最高" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gl-4k-Ohy">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="默认排序" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gl-4k-Ohy">
                                             <rect key="frame" x="46" y="13" width="82" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="Whh-By-iYd"/>
@@ -194,7 +194,7 @@
                                             <state key="normal" image="icon_sort"/>
                                             <state key="highlighted" image="icon_sort_highlighted"/>
                                             <connections>
-                                                <segue destination="8UO-cz-ChF" kind="popoverPresentation" popoverAnchorBarButtonItem="fMX-hP-jG0" id="Jim-N6-7MZ">
+                                                <segue destination="8UO-cz-ChF" kind="popoverPresentation" identifier="sort" popoverAnchorBarButtonItem="fMX-hP-jG0" id="Jim-N6-7MZ">
                                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                 </segue>
                                             </connections>
@@ -255,7 +255,7 @@
         <scene sceneID="fj4-EW-KoC">
             <objects>
                 <tableViewController id="8UO-cz-ChF" customClass="SortsTableViewController" customModule="Meituan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JoR-ic-xZl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JoR-ic-xZl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,6 +271,9 @@
                                             <rect key="frame" x="7" y="7" width="586" height="30"/>
                                             <state key="normal" backgroundImage="btn_filter_normal">
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <state key="selected" backgroundImage="btn_filter_selected">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <state key="highlighted" backgroundImage="btn_filter_selected">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,7 +294,7 @@
                             <outlet property="delegate" destination="8UO-cz-ChF" id="2t5-Jh-XSU"/>
                         </connections>
                     </tableView>
-                    <value key="contentSizeForViewInPopover" type="size" width="150" height="308"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="114" height="308"/>
                     <connections>
                         <segue destination="pmO-dD-Vzh" kind="unwind" identifier="unwindFromSorts" unwindAction="unwindFromSorts:" id="gtS-LP-Xgu"/>
                     </connections>
@@ -325,7 +328,7 @@
                                         </state>
                                         <state key="highlighted" title="切换城市"/>
                                         <connections>
-                                            <segue destination="vfw-AM-ZgB" kind="presentation" modalPresentationStyle="formSheet" id="hJo-8J-nEC"/>
+                                            <segue destination="vfw-AM-ZgB" kind="presentation" identifier="city" modalPresentationStyle="formSheet" id="hJo-8J-nEC"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cell_rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-v8-XB2">
@@ -347,7 +350,7 @@
                                     <constraint firstAttribute="trailing" secondItem="kL4-fO-WMn" secondAttribute="trailing" id="gg1-jM-3Yt"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hvo-EP-0PL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hvo-EP-0PL">
                                 <rect key="frame" x="0.0" y="44" width="300" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -361,7 +364,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O5S-JK-ksx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O5S-JK-ksx">
                                 <rect key="frame" x="300" y="44" width="300" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -402,7 +405,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyf-B6-68B" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="txm-xh-Fbz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1792" y="-700"/>
+            <point key="canvasLocation" x="1787" y="-707"/>
         </scene>
         <!--切换城市-->
         <scene sceneID="KsJ-JQ-RbB">
@@ -524,7 +527,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ine-No-ayh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ine-No-ayh">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -538,7 +541,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-OZ-CbV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-OZ-CbV">
                                 <rect key="frame" x="300" y="0.0" width="300" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
