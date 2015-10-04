@@ -15,8 +15,8 @@ class DistrictViewController: UIViewController,UITableViewDataSource,UITableView
     var cities:NSMutableArray!
     var currentRegoins:NSMutableArray?
     var selectedRegoin:RegionsModel?
-    var selectedSubregoinName:String?
-    var selectedRegoinName:String?
+    var selectedSubregionName:String?
+    var selectedRegionName:String?
     var currentCityName:String?
     
     override func viewDidLoad() {
@@ -92,12 +92,12 @@ class DistrictViewController: UIViewController,UITableViewDataSource,UITableView
         if tableView == leftTable {
             selectedRegoin = currentRegoins![indexPath.row] as? RegionsModel
             rightTable.reloadData()
-            selectedRegoinName = selectedRegoin?.name
+            selectedRegionName = selectedRegoin?.name
             if selectedRegoin?.subregions == nil{
                 performSegueWithIdentifier("unwindDistict", sender: self)
             }
         }else{
-            selectedSubregoinName = selectedRegoin?.subregions![indexPath.row]
+            selectedSubregionName = selectedRegoin?.subregions![indexPath.row]
             performSegueWithIdentifier("unwindDistict", sender: self)
         }
     }

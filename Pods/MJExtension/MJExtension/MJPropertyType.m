@@ -45,7 +45,8 @@
         _code = [code substringWithRange:NSMakeRange(2, code.length - 3)];
         _typeClass = NSClassFromString(_code);
         _fromFoundation = [MJFoundation isClassFromFoundation:_typeClass];
-        _numberType = (_typeClass == [NSNumber class] || [_typeClass isSubclassOfClass:[NSNumber class]]);
+        _numberType = [_typeClass isSubclassOfClass:[NSNumber class]];
+        
     } else if ([code isEqualToString:MJPropertyTypeSEL] ||
                [code isEqualToString:MJPropertyTypeIvar] ||
                [code isEqualToString:MJPropertyTypeMethod]) {

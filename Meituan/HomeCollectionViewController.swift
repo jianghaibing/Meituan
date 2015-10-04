@@ -8,45 +8,52 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
 
-class HomeCollectionViewController: UICollectionViewController {
+class HomeCollectionViewController: BaseDealsViewController {
     @IBOutlet weak var categoryLable: UILabel!
     @IBOutlet weak var subcategoryLable: UILabel!
     @IBOutlet weak var categoryIconButton: UIButton!
     @IBOutlet weak var cityLable: UILabel!
     @IBOutlet weak var districtLable: UILabel!
     @IBOutlet weak var sortsLable: UILabel!
-    var districtName:String?
-    var cityName:String?
-    var currentSelectIndex:Int?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        cityName = "北京"
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "cityDidChanged:", name: changeCityNotification, object: nil)
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    ///城市改变时监听通知的方法
     func cityDidChanged(notification:NSNotification){
         cityName = notification.userInfo![selectedCityName] as? String
         cityLable.text = cityName! + " - 全部"
         districtLable.text = "全部"
+        selectRegionName = nil
+        requestNewDeals()
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: changeCityNotification, object: nil)
     }
-
     
-    // MARK: - Navigation
-
+       
+    // MARK: - 控制器的逆向传值
     @IBAction func unwindFromDistrict(segue:UIStoryboardSegue){
         let districtVC = segue.sourceViewController as? DistrictViewController
-        districtName = districtVC?.selectedRegoinName
+        districtName = districtVC?.selectedRegionName
         cityLable.text = cityName! + " - " + districtName!
-        districtLable.text = districtVC?.selectedSubregoinName
+        districtLable.text = districtVC?.selectedSubregionName
+        if districtVC?.selectedRegoin?.subregions == nil || districtVC?.selectedSubregionName == "全部" {
+            selectRegionName = districtVC?.selectedRegionName
+        }else {
+            selectRegionName = districtVC?.selectedSubregionName
+        }
+        if selectRegionName == "全部" {
+            selectRegionName = nil
+        }
+
+        requestNewDeals()
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     }
     
     @IBAction func unwindFromCategory(segue:UIStoryboardSegue){
@@ -55,13 +62,26 @@ class HomeCollectionViewController: UICollectionViewController {
         subcategoryLable.text = categoryVC?.selectedSubCategoryName
         categoryIconButton.setImage(UIImage(named: categoryVC!.selectedIcon!), forState: .Normal)
         categoryIconButton.setImage(UIImage(named: categoryVC!.selectedHHighlightedIcon!), forState: .Highlighted)
+        if categoryVC?.subCategories == nil || categoryVC?.selectedSubCategoryName == "全部" {
+            selectCategoryName = categoryVC?.selectedCategoryName
+        }else {
+            selectCategoryName = categoryVC?.selectedSubCategoryName
+        }
+        if selectCategoryName == "全部分类" {
+            selectCategoryName = nil
+        }
         
+        requestNewDeals()
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     }
     
     @IBAction func unwindFromSorts(segue:UIStoryboardSegue){
         let sortsVc = segue.sourceViewController as? SortsTableViewController
         sortsLable.text = sortsVc?.selectedSort?.label
         currentSelectIndex = sortsVc?.currentSelectIndex
+        selectSort = sortsVc?.selectedSort
+        requestNewDeals()
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -74,57 +94,5 @@ class HomeCollectionViewController: UICollectionViewController {
             sortsVc?.currentSelectIndex = currentSelectIndex ?? 3
         }
     }
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-    
-        // Configure the cell
-    
-        return cell
-    }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
-
+   
 }

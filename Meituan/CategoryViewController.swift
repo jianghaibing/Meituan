@@ -14,7 +14,7 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
     @IBOutlet weak var tableOne: UITableView!
     @IBOutlet weak var tableTwo: UITableView!
     var selectedCategory:CategoryModel?
-    private var subCategories:[String]?
+    var subCategories:[String]?
     var selectedCategoryName:String?
     var selectedSubCategoryName:String?
     var selectedIcon:String?
