@@ -9,7 +9,7 @@
 import UIKit
 
 
-class HomeCollectionViewController: BaseDealsViewController {
+class HomeCollectionViewController: BaseDealsViewController,AwesomeMenuDelegate {
     @IBOutlet weak var categoryLable: UILabel!
     @IBOutlet weak var subcategoryLable: UILabel!
     @IBOutlet weak var categoryIconButton: UIButton!
@@ -22,6 +22,7 @@ class HomeCollectionViewController: BaseDealsViewController {
         cityName = "北京"
         requestNewDeals()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "cityDidChanged:", name: changeCityNotification, object: nil)
+        setupAwesomeMenu()
     }
     
     ///城市改变时监听通知的方法
@@ -50,6 +51,62 @@ class HomeCollectionViewController: BaseDealsViewController {
         params["sort"] = selectSort?.value ?? 4
     }
     
+    //MARK: - awesomeMenu
+    func setupAwesomeMenu(){
+        let startItem = AwesomeMenuItem(image: UIImage(named: "icon_pathMenu_background_normal"), highlightedImage: UIImage(named: "icon_pathMenu_background_highlighted"), contentImage: UIImage(named: "icon_pathMenu_mainMine_normal"), highlightedContentImage: UIImage(named: "icon_pathMenu_mainMine_highlighted"))
+        let item1 = AwesomeMenuItem(image: UIImage(named: "bg_pathMenu_black_normal"), highlightedImage: nil, contentImage: UIImage(named: "icon_pathMenu_mine_normal"), highlightedContentImage: UIImage(named: "icon_pathMenu_mine_highlighted"))
+        let item2 = AwesomeMenuItem(image: UIImage(named: "bg_pathMenu_black_normal"), highlightedImage: nil, contentImage: UIImage(named: "icon_pathMenu_collect_normal"), highlightedContentImage: UIImage(named: "icon_pathMenu_collect_highlighted"))
+        let item3 = AwesomeMenuItem(image: UIImage(named: "bg_pathMenu_black_normal"), highlightedImage: nil, contentImage: UIImage(named: "icon_pathMenu_scan_normal"), highlightedContentImage: UIImage(named: "icon_pathMenu_scan_highlighted"))
+        let item4 = AwesomeMenuItem(image: UIImage(named: "bg_pathMenu_black_normal"), highlightedImage: nil, contentImage: UIImage(named: "icon_pathMenu_more_normal"), highlightedContentImage: UIImage(named: "icon_pathMenu_more_highlighted"))
+        let menuItems = [item1,item2,item3,item4]
+        let menu = AwesomeMenu(frame: CGRectZero, startItem: startItem, menuItems: menuItems)
+        menu.alpha = 0.5
+        menu.rotateAddButton = false
+        menu.startPoint = CGPointMake(50, 150)
+        menu.menuWholeAngle = CGFloat(M_PI_2)
+        menu.delegate = self
+        self.view.addSubview(menu)
+        constrain(menu) { (menu:LayoutProxy) -> () in
+            menu.leading == menu.superview!.leading
+            menu.bottom == menu.superview!.bottom
+            menu.width == 200
+            menu.height == 200
+        }
+    }
+    
+    
+    func awesomeMenuDidFinishAnimationOpen(menu: AwesomeMenu!) {
+        UIView.animateWithDuration(0.3) { () -> Void in
+            menu.alpha = 1
+            menu.contentImage = UIImage(named: "icon_pathMenu_cross_normal")
+        }
+    }
+    
+    func awesomeMenuWillAnimateClose(menu: AwesomeMenu!) {
+        UIView.animateWithDuration(0.3) { () -> Void in
+            menu.alpha = 0.5
+            menu.contentImage = UIImage(named: "icon_pathMenu_mainMine_normal")
+        }
+    }
+    
+    func awesomeMenu(menu: AwesomeMenu!, didSelectIndex idx: Int) {
+        UIView.animateWithDuration(0.3) { () -> Void in
+            menu.alpha = 0.5
+            menu.contentImage = UIImage(named: "icon_pathMenu_mainMine_normal")
+        }
+        switch idx {
+        case 0:
+            print(idx)
+        case 1:
+            performSegueWithIdentifier("collect", sender: self)
+        case 2:
+            performSegueWithIdentifier("recent", sender: self)
+        case 3:
+            print(idx)
+        default:
+            print("默认")
+        }
+    }
        
     // MARK: - 控制器的逆向传值
     @IBAction func unwindFromDistrict(segue:UIStoryboardSegue){

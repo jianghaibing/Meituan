@@ -9,9 +9,8 @@
 import UIKit
 
 
-class BaseDealsViewController: UICollectionViewController,DPRequestDelegate {
+class BaseDealsViewController: BaseCollectionViewController,DPRequestDelegate {
     
-    lazy var deals:NSMutableArray = NSMutableArray()
     lazy var nodataView:UIImageView = UIImageView(image: UIImage(named: "icon_deals_empty"))
     var districtName:String?
     var cityName:String?
@@ -22,13 +21,10 @@ class BaseDealsViewController: UICollectionViewController,DPRequestDelegate {
     var currentPage:Int = 1
     var lastRequest:DPRequest?
     
-    var layout:UICollectionViewFlowLayout!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        layout = self.collectionViewLayout as! UICollectionViewFlowLayout
-        layoutInset(collectionView!.bounds.width)
         
         collectionView!.footer = MJRefreshAutoNormalFooter(refreshingBlock: { () -> Void in
             self.requestMoreDeals()
@@ -47,21 +43,6 @@ class BaseDealsViewController: UICollectionViewController,DPRequestDelegate {
 
     }
 
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        layoutInset(size.width)
-    }
-    
-    ///根据屏幕宽度设置布局
-    private func layoutInset(width:CGFloat){
-        var cols = 2
-        if width == 1024 {
-            cols = 3
-        }
-        let inset = (width - layout.itemSize.width * CGFloat(cols)) / CGFloat(cols + 1)
-        layout.sectionInset = UIEdgeInsetsMake(inset, inset, inset, inset)
-        layout.minimumLineSpacing = inset
-    }
-    
     //MARK: - 数据请求的方法
     func requestDeals(){
         let dpapi = DPAPI()
@@ -136,24 +117,6 @@ class BaseDealsViewController: UICollectionViewController,DPRequestDelegate {
         }
     }
 
-    
-    // MARK: UICollectionViewDataSource
-    
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return deals.count
-    }
-    
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! DealCell
-        let deal = deals[indexPath.item] as! DealsModel
-        cell.deal = deal
-        return cell
-    }
     
     
 }
