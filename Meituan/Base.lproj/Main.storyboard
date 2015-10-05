@@ -354,7 +354,7 @@
                                     <state key="normal" image="icon_search"/>
                                     <state key="highlighted" image="icon_search_highlighted"/>
                                     <connections>
-                                        <segue destination="j9y-SI-vOp" kind="presentation" id="wuI-w5-HTK"/>
+                                        <segue destination="j9y-SI-vOp" kind="presentation" identifier="search" id="wuI-w5-HTK"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
@@ -939,6 +939,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="layout" destination="Hg6-VX-cA0" id="Fpo-t6-RnE"/>
+                        <outlet property="searchBar" destination="Tnq-Mm-CpR" id="eYW-8A-6Rf"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDm-VC-Hof" userLabel="First Responder" sceneMemberID="firstResponder"/>

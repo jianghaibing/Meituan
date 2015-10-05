@@ -26,7 +26,7 @@ class BaseDealsViewController: UICollectionViewController,DPRequestDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cityName = "北京"
+        
         layout = self.collectionViewLayout as! UICollectionViewFlowLayout
         layoutInset(collectionView!.bounds.width)
         
@@ -37,8 +37,7 @@ class BaseDealsViewController: UICollectionViewController,DPRequestDelegate {
         collectionView!.header = MJRefreshNormalHeader(refreshingBlock: { () -> Void in
             self.requestNewDeals()
         })
-        requestNewDeals()
-        
+        collectionView!.header.automaticallyChangeAlpha = true
         //没有数据时的图片
         nodataView.hidden = true
         view.addSubview(nodataView)
@@ -67,17 +66,13 @@ class BaseDealsViewController: UICollectionViewController,DPRequestDelegate {
     func requestDeals(){
         let dpapi = DPAPI()
         let params = NSMutableDictionary()
-        params["city"] = cityName!
-        if selectCategoryName != nil {
-            params["category"] = selectCategoryName!
-        }
-        if selectRegionName != nil {
-            params["region"] = selectRegionName!
-        }
-        params["limit"] = 15
-        params["sort"] = selectSort?.value ?? 4
-        params["page"] = currentPage
+        setupParams(params)
         lastRequest = dpapi.requestWithURL("v1/deal/find_deals", params: params, delegate: self)
+    }
+    
+    func setupParams(params:NSMutableDictionary){
+        params["limit"] = 15
+        params["page"] = currentPage
     }
     
     func requestNewDeals(){
@@ -123,7 +118,7 @@ class BaseDealsViewController: UICollectionViewController,DPRequestDelegate {
         //请求数据完成需要结束刷新
         collectionView!.footer.endRefreshing()
         collectionView!.header.endRefreshing()
-        collectionView?.header.automaticallyChangeAlpha = true
+        
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         
         //没有更多数据时隐藏上拉加载更多控件

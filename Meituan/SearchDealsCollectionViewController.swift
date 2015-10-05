@@ -10,19 +10,25 @@ import UIKit
 
 class SearchDealsCollectionViewController: BaseDealsViewController,UISearchBarDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+    @IBOutlet weak var searchBar: UISearchBar!
+    var keyword:String?
 
     @IBAction func backbuttonClick(sender: UIButton) {
+        searchBar.resignFirstResponder()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    override func setupParams(params: NSMutableDictionary) {
+        super.setupParams(params)
+        params["city"] = cityName
+        params["keyword"] = keyword
+    }
 
     //MARK: - 搜索框代理
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        print("点击了搜索按钮")
+        keyword = searchBar.text
+        searchBar.resignFirstResponder()
+        requestNewDeals()
     }
     
 }

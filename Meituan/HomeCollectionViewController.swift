@@ -19,6 +19,8 @@ class HomeCollectionViewController: BaseDealsViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityName = "北京"
+        requestNewDeals()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "cityDidChanged:", name: changeCityNotification, object: nil)
     }
     
@@ -34,6 +36,18 @@ class HomeCollectionViewController: BaseDealsViewController {
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: changeCityNotification, object: nil)
+    }
+    
+    override func setupParams(params: NSMutableDictionary) {
+        super.setupParams(params)
+        params["city"] = cityName ?? "北京"
+        if selectCategoryName != nil {
+            params["category"] = selectCategoryName!
+        }
+        if selectRegionName != nil {
+            params["region"] = selectRegionName!
+        }
+        params["sort"] = selectSort?.value ?? 4
     }
     
        
@@ -92,6 +106,10 @@ class HomeCollectionViewController: BaseDealsViewController {
         if segue.identifier == "sort" {
             let sortsVc = segue.destinationViewController as? SortsTableViewController
             sortsVc?.currentSelectIndex = currentSelectIndex ?? 3
+        }
+        if segue.identifier == "search" {
+            let searchVC = (segue.destinationViewController as? BaseNavigationController)?.topViewController as? SearchDealsCollectionViewController
+            searchVC?.cityName = cityName ?? "北京"
         }
     }
    

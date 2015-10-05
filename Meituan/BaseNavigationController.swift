@@ -15,10 +15,4 @@ class BaseNavigationController: UINavigationController {
         navigationBar.setBackgroundImage(UIImage(named: "bg_navigationBar_normal"), forBarMetrics: UIBarMetrics.Default)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
-
 }
