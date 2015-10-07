@@ -37,6 +37,14 @@
 		09740CEF1BC2B91100D2D11E /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740CEE1BC2B91100D2D11E /* BaseCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		09740CF31BC2C30700D2D11E /* DetailLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740CF21BC2C30700D2D11E /* DetailLeftViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		09740CF51BC2C31800D2D11E /* DetailRightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740CF41BC2C31800D2D11E /* DetailRightViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		09740CFD1BC3BE4600D2D11E /* DetailSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740CFC1BC3BE4600D2D11E /* DetailSplitViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		09740CFF1BC3EC7D00D2D11E /* RestrictionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740CFE1BC3EC7D00D2D11E /* RestrictionsModel.swift */; settings = {ASSET_TAGS = (); }; };
+		09740D051BC406BA00D2D11E /* CollectDealsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740D011BC406BA00D2D11E /* CollectDealsTable.swift */; settings = {ASSET_TAGS = (); }; };
+		09740D071BC406BA00D2D11E /* RecentDealsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740D031BC406BA00D2D11E /* RecentDealsTable.swift */; settings = {ASSET_TAGS = (); }; };
+		09740D131BC4187800D2D11E /* CollectDealsTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740D111BC4187800D2D11E /* CollectDealsTable+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		09740D141BC4187800D2D11E /* RecentDealsTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740D121BC4187800D2D11E /* RecentDealsTable+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		09740D161BC4E4DC00D2D11E /* DealTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740D151BC4E4DC00D2D11E /* DealTransformer.swift */; settings = {ASSET_TAGS = (); }; };
+		09740D181BC502F400D2D11E /* NumberFormatStringTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740D171BC502F400D2D11E /* NumberFormatStringTool.swift */; settings = {ASSET_TAGS = (); }; };
 		097F2D821BBD8866001F6992 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F2D7E1BBD8866001F6992 /* DPAPI.m */; settings = {ASSET_TAGS = (); }; };
 		097F2D831BBD8866001F6992 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F2D811BBD8866001F6992 /* DPRequest.m */; settings = {ASSET_TAGS = (); }; };
 		0980EF181BA720A200F7F8C4 /* DistrictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0980EF171BA720A200F7F8C4 /* DistrictViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -108,6 +116,14 @@
 		09740CEE1BC2B91100D2D11E /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		09740CF21BC2C30700D2D11E /* DetailLeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLeftViewController.swift; sourceTree = "<group>"; };
 		09740CF41BC2C31800D2D11E /* DetailRightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRightViewController.swift; sourceTree = "<group>"; };
+		09740CFC1BC3BE4600D2D11E /* DetailSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSplitViewController.swift; sourceTree = "<group>"; };
+		09740CFE1BC3EC7D00D2D11E /* RestrictionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestrictionsModel.swift; sourceTree = "<group>"; };
+		09740D011BC406BA00D2D11E /* CollectDealsTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectDealsTable.swift; sourceTree = "<group>"; };
+		09740D031BC406BA00D2D11E /* RecentDealsTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentDealsTable.swift; sourceTree = "<group>"; };
+		09740D111BC4187800D2D11E /* CollectDealsTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectDealsTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09740D121BC4187800D2D11E /* RecentDealsTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecentDealsTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09740D151BC4E4DC00D2D11E /* DealTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealTransformer.swift; sourceTree = "<group>"; };
+		09740D171BC502F400D2D11E /* NumberFormatStringTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatStringTool.swift; sourceTree = "<group>"; };
 		097F2D7D1BBD8866001F6992 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
 		097F2D7E1BBD8866001F6992 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
 		097F2D7F1BBD8866001F6992 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
@@ -212,6 +228,7 @@
 		091069531BA5B21F005F1AB5 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				09740D081BC406C400D2D11E /* CoreData */,
 				094CAB531BAE7DB200222767 /* Controllers */,
 				094CAB541BAE7DC900222767 /* Tools */,
 			);
@@ -241,6 +258,7 @@
 				092699BF1BA84F7400E6A0B1 /* RegionsModel.swift */,
 				098945CC1BBD3B9600BC812E /* SortsModel.swift */,
 				09A494721BBEC8AA00856A81 /* DealsModel.swift */,
+				09740CFE1BC3EC7D00D2D11E /* RestrictionsModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -272,6 +290,8 @@
 				094CAB511BAE7D9900222767 /* Constant.swift */,
 				094CAB551BAE7DF700222767 /* ExtensionColor.swift */,
 				09A342FB1BB6EB1A00F91646 /* MetaDataTool.swift */,
+				09740D151BC4E4DC00D2D11E /* DealTransformer.swift */,
+				09740D171BC502F400D2D11E /* NumberFormatStringTool.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -300,6 +320,7 @@
 			children = (
 				09740CF21BC2C30700D2D11E /* DetailLeftViewController.swift */,
 				09740CF41BC2C31800D2D11E /* DetailRightViewController.swift */,
+				09740CFC1BC3BE4600D2D11E /* DetailSplitViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +355,17 @@
 				09740CEA1BC2B37D00D2D11E /* RecentViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		09740D081BC406C400D2D11E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				09740D111BC4187800D2D11E /* CollectDealsTable+CoreDataProperties.swift */,
+				09740D121BC4187800D2D11E /* RecentDealsTable+CoreDataProperties.swift */,
+				09740D011BC406BA00D2D11E /* CollectDealsTable.swift */,
+				09740D031BC406BA00D2D11E /* RecentDealsTable.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		097F2D7C1BBD8866001F6992 /* dianpingapi */ = {
@@ -523,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09740D161BC4E4DC00D2D11E /* DealTransformer.swift in Sources */,
 				09E245F91BAF05D4002B22D0 /* Size.swift in Sources */,
 				09740CED1BC2B3A600D2D11E /* CollectViewController.swift in Sources */,
 				09740CE21BC0FB9100D2D11E /* BaseDealsViewController.swift in Sources */,
@@ -535,22 +568,26 @@
 				09E245ED1BAF05D4002B22D0 /* Context.swift in Sources */,
 				09E245E91BAF05D4002B22D0 /* Compound.swift in Sources */,
 				09A494751BBED1AB00856A81 /* DealCell.swift in Sources */,
+				09740CFF1BC3EC7D00D2D11E /* RestrictionsModel.swift in Sources */,
 				09740CE01BC0370000D2D11E /* SearchDealsCollectionViewController.swift in Sources */,
 				09E245F51BAF05D4002B22D0 /* LayoutProxy.swift in Sources */,
 				09E245E71BAF05D4002B22D0 /* Align.swift in Sources */,
 				09E245F61BAF05D4002B22D0 /* Point.swift in Sources */,
 				09E245EA1BAF05D4002B22D0 /* Constrain.swift in Sources */,
 				098945CF1BBD3D4C00BC812E /* SortsTableViewController.swift in Sources */,
+				09740D131BC4187800D2D11E /* CollectDealsTable+CoreDataProperties.swift in Sources */,
 				091069561BA5B270005F1AB5 /* CategoryViewController.swift in Sources */,
 				09E245F81BAF05D4002B22D0 /* Property.swift in Sources */,
 				09E245F11BAF05D4002B22D0 /* Edges.swift in Sources */,
 				09740CDD1BBF943700D2D11E /* CenterlineLabel.swift in Sources */,
+				09740D071BC406BA00D2D11E /* RecentDealsTable.swift in Sources */,
 				09740CEB1BC2B37D00D2D11E /* RecentViewController.swift in Sources */,
 				09740CE91BC284A300D2D11E /* AwesomeMenuItem.m in Sources */,
 				09740CF31BC2C30700D2D11E /* DetailLeftViewController.swift in Sources */,
 				09E245FB1BAF05D4002B22D0 /* ViewUtils.swift in Sources */,
 				092699BC1BA8485D00E6A0B1 /* CityViewController.swift in Sources */,
 				092699C21BA8536000E6A0B1 /* CityGroupsModel.swift in Sources */,
+				09740CFD1BC3BE4600D2D11E /* DetailSplitViewController.swift in Sources */,
 				09E245F21BAF05D4002B22D0 /* Expression.swift in Sources */,
 				09E245CF1BAF02A6002B22D0 /* SearchResultTableViewController.swift in Sources */,
 				09740CEF1BC2B91100D2D11E /* BaseCollectionViewController.swift in Sources */,
@@ -562,6 +599,7 @@
 				0910694F1BA5999E005F1AB5 /* HomeCollectionViewController.swift in Sources */,
 				09740CE81BC284A300D2D11E /* AwesomeMenu.m in Sources */,
 				0910693A1BA58BFA005F1AB5 /* AppDelegate.swift in Sources */,
+				09740D051BC406BA00D2D11E /* CollectDealsTable.swift in Sources */,
 				09A494731BBEC8AA00856A81 /* DealsModel.swift in Sources */,
 				09D57C831BBD5709009495AB /* SortButton.swift in Sources */,
 				09E245F71BAF05D4002B22D0 /* Priority.swift in Sources */,
@@ -575,6 +613,8 @@
 				097F2D821BBD8866001F6992 /* DPAPI.m in Sources */,
 				09E245E81BAF05D4002B22D0 /* Coefficients.swift in Sources */,
 				098945CD1BBD3B9600BC812E /* SortsModel.swift in Sources */,
+				09740D141BC4187800D2D11E /* RecentDealsTable+CoreDataProperties.swift in Sources */,
+				09740D181BC502F400D2D11E /* NumberFormatStringTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

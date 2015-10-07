@@ -13,6 +13,7 @@ class BaseCollectionViewController: UICollectionViewController {
 
     var layout:UICollectionViewFlowLayout!
     lazy var deals:NSMutableArray = NSMutableArray()
+    var selectDeal:DealsModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +59,25 @@ class BaseCollectionViewController: UICollectionViewController {
     
     //MARK:UICollectionDelegate
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let splitVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("splitView") as! UISplitViewController
-        self.presentViewController(splitVC, animated: true, completion: nil)
-        let selectDeal = deals[indexPath.item] as! DealsModel
+        selectDeal = deals[indexPath.item] as? DealsModel
+        performSegueWithIdentifier("split", sender: self)
     }
+   
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "split" {
+            let splitVC = segue.destinationViewController as! DetailSplitViewController
+            let rightVC = splitVC.viewControllers.last as? DetailRightViewController
+            let leftVC = (splitVC.viewControllers.first as? BaseNavigationController)?.topViewController as? DetailLeftViewController
+            rightVC?.deal = selectDeal
+            leftVC?.deal = selectDeal
+            
+        }
+    }
+    
+    @IBAction func unwindToCollectDeals(segue:UIStoryboardSegue) {
+        collectionView!.reloadData()
+    }
+
 
 }

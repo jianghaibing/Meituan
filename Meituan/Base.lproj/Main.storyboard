@@ -370,6 +370,7 @@
                         <outlet property="subcategoryLable" destination="9H9-Oi-T05" id="GZL-ak-Y4f"/>
                         <segue destination="ZPY-Ou-1O0" kind="presentation" identifier="collect" id="hjD-HA-Mdi"/>
                         <segue destination="lbN-SD-75Q" kind="presentation" identifier="recent" id="Bf6-9T-tjn"/>
+                        <segue destination="dRZ-v2-DFX" kind="presentation" identifier="split" id="adO-BL-rz4"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWz-gP-hP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -747,9 +748,28 @@
                     <view key="view" contentMode="scaleToFill" id="Hx0-9m-G7j">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8X-nd-en6">
+                                <rect key="frame" x="10" y="25" width="580" height="575"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="OGa-hB-frR" id="Acp-r1-6qA"/>
+                                </connections>
+                            </webView>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="q8X-nd-en6" firstAttribute="leading" secondItem="Hx0-9m-G7j" secondAttribute="leading" constant="10" id="Qnw-xu-MZo"/>
+                            <constraint firstItem="xhb-Bi-KcA" firstAttribute="top" secondItem="q8X-nd-en6" secondAttribute="bottom" id="kFw-iz-hhK"/>
+                            <constraint firstItem="q8X-nd-en6" firstAttribute="top" secondItem="9vV-xw-Ybw" secondAttribute="bottom" constant="5" id="nWT-nC-xVS"/>
+                            <constraint firstAttribute="trailing" secondItem="q8X-nd-en6" secondAttribute="trailing" constant="10" id="ybK-1U-VgY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailWebView" destination="q8X-nd-en6" id="nQ6-bj-Tib"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R01-A1-AFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -829,10 +849,10 @@
                                         <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="woC-FT-zp1">
-                                        <rect key="frame" x="0.0" y="90" width="322" height="87"/>
+                                        <rect key="frame" x="0.0" y="90" width="584" height="87"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dca-hk-kpi">
-                                                <rect key="frame" x="0.0" y="21" width="150" height="45"/>
+                                                <rect key="frame" x="0.0" y="21" width="412" height="45"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="5p7-Y8-7n1"/>
@@ -842,19 +862,26 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="highlighted" backgroundImage="bg_deal_purchaseButton_highlighted"/>
+                                                <connections>
+                                                    <action selector="buyButtonClick:" destination="nZc-Ue-UcS" eventType="touchUpInside" id="U5o-oe-uRQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-Al-wba">
-                                                <rect key="frame" x="150" y="0.0" width="86" height="87"/>
+                                                <rect key="frame" x="412" y="0.0" width="86" height="87"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="86" id="YXJ-FS-aEy"/>
                                                     <constraint firstAttribute="height" constant="87" id="dZA-JG-kFy"/>
                                                 </constraints>
                                                 <state key="normal" image="icon_collect"/>
+                                                <state key="selected" image="icon_collect_highlighted"/>
                                                 <state key="highlighted" image="icon_collect_highlighted"/>
+                                                <connections>
+                                                    <action selector="collectButtonClick:" destination="nZc-Ue-UcS" eventType="touchUpInside" id="RAg-e5-iic"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owz-mn-QkR">
-                                                <rect key="frame" x="236" y="0.0" width="86" height="87"/>
+                                                <rect key="frame" x="498" y="0.0" width="86" height="87"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="86" id="Q7a-PV-KFN"/>
@@ -862,6 +889,9 @@
                                                 </constraints>
                                                 <state key="normal" image="icon_share"/>
                                                 <state key="highlighted" image="icon_share_highlighted"/>
+                                                <connections>
+                                                    <action selector="shareButtonClick:" destination="nZc-Ue-UcS" eventType="touchUpInside" id="gql-8P-kG2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <animations/>
@@ -871,7 +901,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v1J-Jp-OKC">
-                                        <rect key="frame" x="0.0" y="185" width="304" height="50"/>
+                                        <rect key="frame" x="0.0" y="185" width="584" height="50"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -886,14 +916,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="292" height="17"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="支持随时退" image="icon_order_refundable">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="selected" title="不支持随时退" image="icon_order_unrefundable"/>
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OV5-1c-XaT">
                                                 <rect key="frame" x="292" y="0.0" width="292" height="17"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="6天15小时5分" image="icon_deal_timer">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -908,14 +941,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="292" height="17"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="支持过期退" image="icon_order_refundable">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="selected" title="不支持过期退" image="icon_order_unrefundable"/>
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDm-9K-Su9">
                                                 <rect key="frame" x="292" y="0.0" width="292" height="17"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="已出售10" image="icon_deal_soldNumber">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -931,7 +967,9 @@
                                     <constraint firstItem="kg5-xW-enT" firstAttribute="top" secondItem="yXO-Pp-6vp" secondAttribute="bottom" constant="8" id="GVf-3z-193"/>
                                     <constraint firstItem="v1J-Jp-OKC" firstAttribute="top" secondItem="woC-FT-zp1" secondAttribute="bottom" constant="-8" id="Mib-32-q3V"/>
                                     <constraint firstItem="Khj-NR-Gl8" firstAttribute="width" secondItem="exx-7A-UCX" secondAttribute="width" id="UGj-iV-8MJ"/>
+                                    <constraint firstItem="woC-FT-zp1" firstAttribute="width" secondItem="exx-7A-UCX" secondAttribute="width" id="c0x-1Q-Z8I"/>
                                     <constraint firstItem="woC-FT-zp1" firstAttribute="top" secondItem="kg5-xW-enT" secondAttribute="bottom" id="mQx-mU-kHR"/>
+                                    <constraint firstItem="v1J-Jp-OKC" firstAttribute="width" secondItem="exx-7A-UCX" secondAttribute="width" id="z8N-NN-hAH"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -956,21 +994,35 @@
                                 <state key="normal" image="icon_back"/>
                                 <state key="highlighted" image="icon_back_highlighted"/>
                                 <connections>
-                                    <action selector="backButtonClick:" destination="nZc-Ue-UcS" eventType="touchUpInside" id="4Rr-fT-IZC"/>
+                                    <action selector="backButtonClick:" destination="nZc-Ue-UcS" eventType="touchUpInside" id="YIk-dC-ejT"/>
+                                    <segue destination="db1-Qm-Woi" kind="unwind" unwindAction="unwindToCollectDeals:" id="T52-mC-D9F"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectButton" destination="M1f-Al-wba" id="g6F-VF-uPy"/>
+                        <outlet property="currentPriceLabel" destination="U4x-jG-f2f" id="Rx3-Mc-HQE"/>
+                        <outlet property="descLabel" destination="yXO-Pp-6vp" id="TBz-8x-crW"/>
+                        <outlet property="expireDateButton" destination="OV5-1c-XaT" id="6GA-ea-V5x"/>
+                        <outlet property="expireRefundableButton" destination="vYI-F5-xVK" id="g7S-bR-MCq"/>
+                        <outlet property="imageView" destination="jfa-LO-KeH" id="Tl0-Iz-wGs"/>
+                        <outlet property="listPriceLabel" destination="Y9a-Aq-jbh" id="3Q0-Ka-4gO"/>
+                        <outlet property="purchaseCountButton" destination="LDm-9K-Su9" id="ok2-gM-GUe"/>
+                        <outlet property="refundableButton" destination="naC-ff-np9" id="NVp-VL-CeB"/>
+                        <outlet property="titleLabel" destination="tqy-LW-Obw" id="Pbu-SB-TP0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfT-RH-0T5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="db1-Qm-Woi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="431" y="-1343"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Detail Split View Controller-->
         <scene sceneID="puD-2w-ebR">
             <objects>
-                <splitViewController storyboardIdentifier="splitView" id="dRZ-v2-DFX" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="splitView" id="dRZ-v2-DFX" customClass="DetailSplitViewController" customModule="Meituan" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="QvY-fh-tyq" kind="relationship" relationship="masterViewController" id="ePA-hQ-bp9"/>
                         <segue destination="OGa-hB-frR" kind="relationship" relationship="detailViewController" id="TQ4-MO-kST"/>
@@ -1186,6 +1238,7 @@
                     <connections>
                         <outlet property="layout" destination="Hg6-VX-cA0" id="Fpo-t6-RnE"/>
                         <outlet property="searchBar" destination="Tnq-Mm-CpR" id="eYW-8A-6Rf"/>
+                        <segue destination="dRZ-v2-DFX" kind="presentation" identifier="split" id="y9M-nZ-qp1"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDm-VC-Hof" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1361,6 +1414,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="layout" destination="7Bn-e2-ZxJ" id="Dck-FV-R0o"/>
+                        <segue destination="dRZ-v2-DFX" kind="presentation" identifier="split" id="vD8-XZ-B5b"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nyo-3S-Etz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1536,6 +1590,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="layout" destination="LOj-5j-6OJ" id="PLF-Mc-8ha"/>
+                        <segue destination="dRZ-v2-DFX" kind="presentation" identifier="split" id="CR2-ao-bmS"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gm5-mV-Vd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1588,6 +1643,7 @@
         <image name="icon_map_highlighted" width="30" height="30"/>
         <image name="icon_meituan_logo" width="64" height="31"/>
         <image name="icon_order_refundable" width="17" height="17"/>
+        <image name="icon_order_unrefundable" width="17" height="17"/>
         <image name="icon_search" width="30" height="30"/>
         <image name="icon_search_highlighted" width="30" height="30"/>
         <image name="icon_share" width="86" height="87"/>
@@ -1596,4 +1652,7 @@
         <image name="icon_sort_highlighted" width="30" height="30"/>
         <image name="placeholder_deal" width="273" height="172"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="y9M-nZ-qp1"/>
+    </inferredMetricsTieBreakers>
 </document>

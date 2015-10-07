@@ -9,7 +9,7 @@
 import UIKit
 
 class DealsModel: NSObject {
-
+    
     var deal_id:String!
     var title:String!
     var desc:String!
@@ -19,8 +19,12 @@ class DealsModel: NSObject {
     var image_url:NSURL!
     var s_image_url:NSURL!
     var publish_date:String!
+    var purchase_deadline:String!
+    var deal_h5_url:NSURL!
+    var restrictions:RestrictionsModel?
     
     override static func replacedKeyFromPropertyName() -> [NSObject : AnyObject]! {
         return ["desc":"description"]
     }
+    
 }

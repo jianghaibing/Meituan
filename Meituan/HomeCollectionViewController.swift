@@ -156,6 +156,7 @@ class HomeCollectionViewController: BaseDealsViewController,AwesomeMenuDelegate 
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
         if segue.identifier == "district" {
             let districtVC = segue.destinationViewController as? DistrictViewController
             districtVC?.currentCityName = cityName
@@ -168,6 +169,8 @@ class HomeCollectionViewController: BaseDealsViewController,AwesomeMenuDelegate 
             let searchVC = (segue.destinationViewController as? BaseNavigationController)?.topViewController as? SearchDealsCollectionViewController
             searchVC?.cityName = cityName ?? "北京"
         }
+      
+
     }
-   
+    
 }
