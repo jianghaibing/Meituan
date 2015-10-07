@@ -23,6 +23,11 @@ class DealsModel: NSObject {
     var deal_h5_url:NSURL!
     var restrictions:RestrictionsModel?
     
+    //是否进入编辑状态
+    var editing:Bool?
+    //是否选中
+    var checking:Bool?
+    
     override static func replacedKeyFromPropertyName() -> [NSObject : AnyObject]! {
         return ["desc":"description"]
     }

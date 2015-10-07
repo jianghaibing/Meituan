@@ -71,19 +71,13 @@ class BaseDealsViewController: BaseCollectionViewController,DPRequestDelegate {
         let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hud.mode = .Text
         hud.labelText = "数据请求错误，请稍后再试"
-        performSelector("hideHud", withObject: self, afterDelay: 2)
+        hud.hide(true, afterDelay: 2)
         collectionView!.footer.endRefreshing()
         collectionView!.header.endRefreshing()
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         if currentPage > 1 {//如果上拉加载失败，页面减回去
             currentPage--
         }
-    }
-    
-    func hideHud(){
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
-        })
     }
     
     func request(request: DPRequest!, didFinishLoadingWithResult result: AnyObject!) {

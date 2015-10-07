@@ -39,7 +39,7 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
         let deadlineStr = deal.purchase_deadline
         let format = NSDateFormatter()
         format.dateFormat = "yyyy-MM-dd"
-        let deadline = format.dateFromString(deadlineStr)?.dateByAddingTimeInterval(NSTimeInterval(3600*24))
+        let deadline = format.dateFromString(deadlineStr)?.dateByAddingTimeInterval(NSTimeInterval(3600*24))//加一天时间
         let calendar = NSCalendar.currentCalendar()
         let now = NSDate()
         let unitFlags = NSCalendarUnit(rawValue: NSCalendarUnit.Day.rawValue | NSCalendarUnit.Hour.rawValue | NSCalendarUnit.Minute.rawValue)
@@ -107,15 +107,9 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
         let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hud.mode = .Text
         hud.labelText = "数据请求错误，请稍后再试"
-        performSelector("hideHud", withObject: self, afterDelay: 2)
+        hud.hide(true, afterDelay: 2)
         MBProgressHUD.hideHUDForView(self.view, animated: true)
      
-    }
-    
-    func hideHud(){
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
-        })
     }
     
     func request(request: DPRequest!, didFinishLoadingWithResult result: AnyObject!) {
@@ -158,6 +152,11 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
             }catch{
                 print("无法保存")
             }
+            let hud = MBProgressHUD.showHUDAddedTo(splitViewController!.view, animated: true)
+            hud.mode = .Text
+            hud.labelText = "收藏成功"
+            hud.hide(true, afterDelay: 1)
+            
         }else{
             let fetchRquest = NSFetchRequest(entityName: "CollectDealsTable")
             fetchRquest.predicate = NSPredicate(format: "deal_id == %@", deal.deal_id)
@@ -165,6 +164,10 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
                 if results.count > 0 {
                     let findDeal = results[0]
                     managedObjectContext.deleteObject(findDeal)
+                    let hud = MBProgressHUD.showHUDAddedTo(splitViewController!.view, animated: true)
+                    hud.mode = .Text
+                    hud.labelText = "已取消收藏"
+                    hud.hide(true, afterDelay: 1)
                 }
             }
         }

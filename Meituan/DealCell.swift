@@ -17,6 +17,8 @@ class DealCell: UICollectionViewCell {
     @IBOutlet weak var currenPriceLabel: UILabel!
     @IBOutlet weak var oriPriceLabel: UILabel!
     @IBOutlet weak var soldCountLabel: UILabel!
+    @IBOutlet weak var coverButton: UIButton!
+    @IBOutlet weak var choosedImageView: UIImageView!
     
     var deal:DealsModel!{
         didSet{
@@ -33,8 +35,37 @@ class DealCell: UICollectionViewCell {
             format.dateFormat = "yyyy-MM-dd"
             let nowString = format.stringFromDate(NSDate())
             self.newDealIcon.hidden = (deal.publish_date.compare(nowString) == .OrderedAscending)
+            if coverButton != nil {
+                self.coverButton.hidden = !(deal.editing ?? false)
+            }
+            if choosedImageView != nil {
+                self.choosedImageView.hidden = !(deal.checking ?? false)
+            }
         }
     }
     
+    @IBAction func coverClick(sender: UIButton) {
+        deal.checking = !(deal.checking ?? false)
+        choosedImageView.hidden = !choosedImageView.hidden
+        
+        var anyOB = self.nextResponder()
+        while !(anyOB!.isKindOfClass(CollectViewController))  {
+            anyOB = anyOB?.nextResponder()
+        }
+        let vc = anyOB as! CollectViewController
+        if deal.checking == true {
+            vc.selectCount++
+        }else{
+            vc.selectCount--
+        }
+        
+        if vc.selectCount == 0 {
+            vc.deleteItem.enabled = false
+            vc.deleteItem.title = "  删除  "
+        }else{
+            vc.deleteItem.enabled = true
+            vc.deleteItem.title = "  删除（\(vc.selectCount)）  "
+        }
+    }
     
 }

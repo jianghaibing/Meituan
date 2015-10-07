@@ -375,7 +375,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWz-gP-hP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="-14"/>
+            <point key="canvasLocation" x="-1159" y="-574"/>
         </scene>
         <!--Sorts Table View Controller-->
         <scene sceneID="fj4-EW-KoC">
@@ -432,7 +432,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGz-67-GBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pmO-dD-Vzh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1138" y="-700"/>
+            <point key="canvasLocation" x="-316" y="-574"/>
         </scene>
         <!--District View Controller-->
         <scene sceneID="TfC-MI-hxq">
@@ -545,7 +545,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyf-B6-68B" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="txm-xh-Fbz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="-707"/>
+            <point key="canvasLocation" x="-326" y="-1423"/>
         </scene>
         <!--切换城市-->
         <scene sceneID="KsJ-JQ-RbB">
@@ -632,7 +632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H8D-BE-exX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3165" y="-700"/>
+            <point key="canvasLocation" x="1119" y="-1423"/>
         </scene>
         <!--Search Result Table View Controller-->
         <scene sceneID="5wd-Lv-p1m">
@@ -663,7 +663,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goZ-eJ-rIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3809" y="-700"/>
+            <point key="canvasLocation" x="1811" y="-1423"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="MEm-XB-L7n">
@@ -735,7 +735,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8V-Cd-X01" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1Bj-o1-YBc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1792" y="-48"/>
+            <point key="canvasLocation" x="-335" y="-2190"/>
         </scene>
         <!--Detail Right View Controller-->
         <scene sceneID="USV-ou-end">
@@ -773,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R01-A1-AFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="418" y="-662"/>
+            <point key="canvasLocation" x="1892" y="-400"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="jgO-62-z4Y">
@@ -790,7 +790,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSZ-ch-lOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-205" y="-1343"/>
+            <point key="canvasLocation" x="1892" y="308"/>
         </scene>
         <!--团购详情-->
         <scene sceneID="8pa-8t-D1H">
@@ -1017,7 +1017,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfT-RH-0T5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="db1-Qm-Woi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="431" y="-1343"/>
+            <point key="canvasLocation" x="2541" y="308"/>
         </scene>
         <!--Detail Split View Controller-->
         <scene sceneID="puD-2w-ebR">
@@ -1030,7 +1030,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cx-V7-ueo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="-662"/>
+            <point key="canvasLocation" x="1205" y="308"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="evk-Hg-u1x">
@@ -1049,7 +1049,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reG-qf-ddK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="118"/>
+            <point key="canvasLocation" x="-1836" y="-574"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="htW-Co-wHf">
@@ -1068,7 +1068,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqA-Lk-dRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2504" y="-700"/>
+            <point key="canvasLocation" x="402" y="-1423"/>
         </scene>
         <!--Search Deals Collection View Controller-->
         <scene sceneID="9tf-fn-I6N">
@@ -1243,7 +1243,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDm-VC-Hof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3563" y="708"/>
+            <point key="canvasLocation" x="344" y="2288"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="SzT-Q6-tNh">
@@ -1262,7 +1262,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQL-NF-qZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2925" y="708"/>
+            <point key="canvasLocation" x="-317" y="2288"/>
         </scene>
         <!--我的收藏-->
         <scene sceneID="SEy-2d-N3O">
@@ -1361,6 +1361,22 @@
                                                 <constraint firstAttribute="height" constant="24" id="GGW-8O-iaP"/>
                                             </constraints>
                                         </imageView>
+                                        <button hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKS-8B-Mn1">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="305"/>
+                                            <animations/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="coverClick:" destination="YhQ-vy-MCL" eventType="touchUpInside" id="ZTD-Yi-dxN"/>
+                                            </connections>
+                                        </button>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_choosed" translatesAutoresizingMaskIntoConstraints="NO" id="fof-62-xKY">
+                                            <rect key="frame" x="279" y="279" width="26" height="26"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="26" id="CZT-kA-ABP"/>
+                                                <constraint firstAttribute="height" constant="26" id="GIe-4S-qxd"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1370,17 +1386,25 @@
                                 <constraints>
                                     <constraint firstItem="Lww-NY-UsE" firstAttribute="leading" secondItem="YhQ-vy-MCL" secondAttribute="leading" id="2DZ-Zg-1OR"/>
                                     <constraint firstItem="VHJ-Rm-Mb4" firstAttribute="top" secondItem="bfv-uJ-9Mh" secondAttribute="bottom" constant="10" id="5eF-6p-eVN"/>
+                                    <constraint firstItem="MKS-8B-Mn1" firstAttribute="top" secondItem="YhQ-vy-MCL" secondAttribute="top" id="A1v-ju-oPb"/>
+                                    <constraint firstAttribute="trailing" secondItem="MKS-8B-Mn1" secondAttribute="trailing" id="DWc-3z-Apd"/>
                                     <constraint firstAttribute="bottom" secondItem="Mxl-JZ-XbS" secondAttribute="bottom" constant="5" id="JuA-CE-H4s"/>
                                     <constraint firstAttribute="trailing" secondItem="Mxl-JZ-XbS" secondAttribute="trailing" constant="5" id="Jwv-Kn-ZHB"/>
                                     <constraint firstAttribute="bottom" secondItem="VHJ-Rm-Mb4" secondAttribute="bottom" constant="5" id="O4k-lE-C6O"/>
+                                    <constraint firstItem="MKS-8B-Mn1" firstAttribute="leading" secondItem="YhQ-vy-MCL" secondAttribute="leading" id="OQF-yz-UGD"/>
+                                    <constraint firstAttribute="bottom" secondItem="MKS-8B-Mn1" secondAttribute="bottom" id="UHy-Ls-los"/>
                                     <constraint firstItem="bfv-uJ-9Mh" firstAttribute="leading" secondItem="YhQ-vy-MCL" secondAttribute="leading" constant="5" id="hD3-4K-wrI"/>
                                     <constraint firstAttribute="trailing" secondItem="VHJ-Rm-Mb4" secondAttribute="trailing" constant="5" id="jzT-hA-lWg"/>
                                     <constraint firstItem="bfv-uJ-9Mh" firstAttribute="top" secondItem="YhQ-vy-MCL" secondAttribute="top" constant="5" id="nOe-6u-dRq"/>
                                     <constraint firstItem="VHJ-Rm-Mb4" firstAttribute="leading" secondItem="YhQ-vy-MCL" secondAttribute="leading" constant="5" id="qUl-JM-bSo"/>
                                     <constraint firstItem="Lww-NY-UsE" firstAttribute="top" secondItem="YhQ-vy-MCL" secondAttribute="top" id="tYW-pI-u6d"/>
                                     <constraint firstAttribute="trailing" secondItem="bfv-uJ-9Mh" secondAttribute="trailing" constant="5" id="tvh-zc-wvt"/>
+                                    <constraint firstAttribute="bottom" secondItem="fof-62-xKY" secondAttribute="bottom" id="yQm-My-fsQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="fof-62-xKY" secondAttribute="trailing" id="zjK-Ad-Bks"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="choosedImageView" destination="fof-62-xKY" id="Ayp-z7-Gcb"/>
+                                    <outlet property="coverButton" destination="MKS-8B-Mn1" id="xEP-0H-G83"/>
                                     <outlet property="currenPriceLabel" destination="BOw-mR-fZN" id="CcC-fJ-JMS"/>
                                     <outlet property="descLabel" destination="yey-qG-wNV" id="HnS-qj-ycO"/>
                                     <outlet property="image" destination="bfv-uJ-9Mh" id="Opx-JG-Ed7"/>
@@ -1398,28 +1422,59 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="我的收藏" id="Qm4-oc-LYF">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="nVX-bQ-zH9">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GgV-mO-xkv">
-                                <rect key="frame" x="20" y="7" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" image="icon_back"/>
-                                <state key="highlighted" image="icon_back_highlighted"/>
+                        <leftBarButtonItems>
+                            <barButtonItem style="plain" id="nVX-bQ-zH9">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GgV-mO-xkv">
+                                    <rect key="frame" x="20" y="7" width="50" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <state key="normal" image="icon_back"/>
+                                    <state key="highlighted" image="icon_back_highlighted"/>
+                                    <connections>
+                                        <action selector="backButtonClick:" destination="VYu-gh-DNv" eventType="touchUpInside" id="3o8-lV-GPN"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="  全选  " id="xd0-5z-7nU">
+                                <color key="tintColor" red="0.30196078431372547" green="0.75686274509803919" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="backButtonClick:" destination="VYu-gh-DNv" eventType="touchUpInside" id="3o8-lV-GPN"/>
+                                    <action selector="selectAllClick:" destination="VYu-gh-DNv" id="Hgq-6L-5Uu"/>
                                 </connections>
-                            </button>
+                            </barButtonItem>
+                            <barButtonItem title="  全不选  " id="eYw-Br-ePM">
+                                <color key="tintColor" red="0.30196078431372547" green="0.75686274509803919" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="deselectAllClick:" destination="VYu-gh-DNv" id="lrY-ob-iJ5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" title="  删除  " id="X3e-LK-f2W">
+                                <color key="tintColor" red="0.30196078431372547" green="0.75686274509803919" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="delectItemClick:" destination="VYu-gh-DNv" id="LJ8-yS-p78"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="编辑" id="Ezb-WB-cIv">
+                            <color key="tintColor" red="0.30196078431372547" green="0.75686274509803919" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editItemClick:" destination="VYu-gh-DNv" id="ZPc-pY-v6x"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backItem" destination="nVX-bQ-zH9" id="7eI-jD-fju"/>
+                        <outlet property="deleteItem" destination="X3e-LK-f2W" id="8qH-IK-I56"/>
+                        <outlet property="deselectAllItem" destination="eYw-Br-ePM" id="sZN-lz-lcR"/>
+                        <outlet property="editItem" destination="Ezb-WB-cIv" id="haR-PO-AYK"/>
                         <outlet property="layout" destination="7Bn-e2-ZxJ" id="Dck-FV-R0o"/>
+                        <outlet property="selectAllItem" destination="xd0-5z-7nU" id="2aW-b2-Grh"/>
                         <segue destination="dRZ-v2-DFX" kind="presentation" identifier="split" id="vD8-XZ-B5b"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nyo-3S-Etz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974" y="762"/>
+            <point key="canvasLocation" x="344" y="808"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="aQc-Ql-YAl">
@@ -1438,7 +1493,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="af3-HH-RAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="762"/>
+            <point key="canvasLocation" x="-326" y="808"/>
         </scene>
         <!--最近浏览-->
         <scene sceneID="skX-gS-9ky">
@@ -1537,6 +1592,22 @@
                                                 <constraint firstAttribute="width" constant="38" id="biA-hG-Mx1"/>
                                             </constraints>
                                         </imageView>
+                                        <button hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HO0-NB-oPe">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="305"/>
+                                            <animations/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="coverClick:" destination="ihF-Yp-Mup" eventType="touchUpInside" id="OZz-wL-YHX"/>
+                                            </connections>
+                                        </button>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ic_choosed" translatesAutoresizingMaskIntoConstraints="NO" id="B5K-tK-Wpd">
+                                            <rect key="frame" x="279" y="274" width="26" height="26"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="Egc-pn-FW9"/>
+                                                <constraint firstAttribute="width" constant="26" id="yit-63-Kwa"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1544,19 +1615,33 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="B5K-tK-Wpd" secondAttribute="trailing" id="1Bo-Kr-v1I"/>
                                     <constraint firstItem="msh-lO-7ix" firstAttribute="leading" secondItem="ihF-Yp-Mup" secondAttribute="leading" id="8pt-R1-KSw"/>
                                     <constraint firstAttribute="bottom" secondItem="Wdh-JQ-0aV" secondAttribute="bottom" constant="5" id="AYa-qa-sFS"/>
                                     <constraint firstAttribute="bottom" secondItem="22w-lA-ud1" secondAttribute="bottom" constant="5" id="Aif-fH-oT0"/>
                                     <constraint firstAttribute="trailing" secondItem="68r-8G-H40" secondAttribute="trailing" constant="5" id="FHL-R7-mGb"/>
                                     <constraint firstAttribute="trailing" secondItem="Wdh-JQ-0aV" secondAttribute="trailing" constant="5" id="M9y-Uy-w7j"/>
+                                    <constraint firstAttribute="trailing" secondItem="HO0-NB-oPe" secondAttribute="trailing" id="anQ-Gj-JS4"/>
+                                    <constraint firstAttribute="bottom" secondItem="B5K-tK-Wpd" secondAttribute="bottom" id="auj-M8-XUN"/>
                                     <constraint firstItem="68r-8G-H40" firstAttribute="top" secondItem="ihF-Yp-Mup" secondAttribute="top" constant="5" id="cSP-wj-Ujo"/>
+                                    <constraint firstItem="Wdh-JQ-0aV" firstAttribute="bottom" secondItem="B5K-tK-Wpd" secondAttribute="bottom" id="drh-rK-lEU"/>
+                                    <constraint firstItem="HO0-NB-oPe" firstAttribute="leading" secondItem="ihF-Yp-Mup" secondAttribute="leading" id="fDt-4h-Svl"/>
                                     <constraint firstItem="Wdh-JQ-0aV" firstAttribute="leading" secondItem="ihF-Yp-Mup" secondAttribute="leading" constant="5" id="jbi-gJ-zgy"/>
                                     <constraint firstItem="msh-lO-7ix" firstAttribute="top" secondItem="ihF-Yp-Mup" secondAttribute="top" id="leh-wS-xQX"/>
                                     <constraint firstAttribute="trailing" secondItem="22w-lA-ud1" secondAttribute="trailing" constant="5" id="nzx-tJ-NB3"/>
                                     <constraint firstItem="Wdh-JQ-0aV" firstAttribute="top" secondItem="68r-8G-H40" secondAttribute="bottom" constant="10" id="qaP-j2-WQi"/>
+                                    <constraint firstItem="HO0-NB-oPe" firstAttribute="top" secondItem="ihF-Yp-Mup" secondAttribute="top" id="rP2-mg-L4G"/>
+                                    <constraint firstAttribute="bottom" secondItem="HO0-NB-oPe" secondAttribute="bottom" id="sRm-J1-CGg"/>
                                     <constraint firstItem="68r-8G-H40" firstAttribute="leading" secondItem="ihF-Yp-Mup" secondAttribute="leading" constant="5" id="uc6-xD-K7R"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="drh-rK-lEU"/>
+                                    </mask>
+                                </variation>
                                 <connections>
+                                    <outlet property="choosedImageView" destination="B5K-tK-Wpd" id="kZe-CF-45a"/>
+                                    <outlet property="coverButton" destination="HO0-NB-oPe" id="tDM-jM-WOB"/>
                                     <outlet property="currenPriceLabel" destination="o73-RT-MlJ" id="aJM-YO-bLh"/>
                                     <outlet property="descLabel" destination="vfc-xd-EFf" id="7TK-Ne-e0y"/>
                                     <outlet property="image" destination="68r-8G-H40" id="AtJ-CC-YKN"/>
@@ -1595,7 +1680,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gm5-mV-Vd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221" y="732"/>
+            <point key="canvasLocation" x="344" y="1540"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="baa-qR-jrW">
@@ -1614,7 +1699,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7i-aM-8zH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1571" y="732"/>
+            <point key="canvasLocation" x="-317" y="1540"/>
         </scene>
     </scenes>
     <resources>
@@ -1627,6 +1712,7 @@
         <image name="btn_filter_selected" width="5" height="5"/>
         <image name="btn_navigation_close" width="30" height="30"/>
         <image name="btn_navigation_close_hl" width="30" height="30"/>
+        <image name="ic_choosed" width="26" height="26"/>
         <image name="ic_deal_new" width="38" height="24"/>
         <image name="icon_back" width="30" height="30"/>
         <image name="icon_back_highlighted" width="30" height="30"/>
@@ -1653,6 +1739,6 @@
         <image name="placeholder_deal" width="273" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y9M-nZ-qp1"/>
+        <segue reference="CR2-ao-bmS"/>
     </inferredMetricsTieBreakers>
 </document>

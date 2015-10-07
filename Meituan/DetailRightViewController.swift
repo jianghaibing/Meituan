@@ -20,7 +20,7 @@ class DetailRightViewController: UIViewController,UIWebViewDelegate {
         let url = NSURL(string: urlStr)
         print(deal.deal_id)
         detailWebView.loadRequest(NSURLRequest(URL: url!))
-        MBProgressHUD.showHUDAddedTo(detailWebView, animated: true)
+        MBProgressHUD.showHUDAddedTo(splitViewController!.view, animated: true)
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
@@ -35,7 +35,7 @@ class DetailRightViewController: UIViewController,UIWebViewDelegate {
         let js8 = "footer.parentNode.removeChild(footer);"
         let js = js1+js2+js3+js4+js5+js6+js7+js8
         webView.stringByEvaluatingJavaScriptFromString(js)
-        MBProgressHUD.hideHUDForView(webView, animated: true)
+        MBProgressHUD.hideHUDForView(splitViewController!.view, animated: true)
     }
     
 }
