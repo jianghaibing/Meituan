@@ -17,5 +17,6 @@ extension RecentDealsTable {
     @NSManaged var id: NSNumber?
     @NSManaged var deal: DealsModel?
     @NSManaged var deal_id: String?
+    @NSManaged var desc:String?
 
 }

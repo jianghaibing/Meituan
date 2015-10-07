@@ -9,10 +9,11 @@
     <entity name="RecentDealsTable" representedClassName=".RecentDealsTable" syncable="YES">
         <attribute name="deal" optional="YES" attributeType="Transformable" valueTransformerName="DealTransformer" syncable="YES"/>
         <attribute name="deal_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="CollectDealsTable" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="RecentDealsTable" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="RecentDealsTable" positionX="-54" positionY="-9" width="128" height="105"/>
     </elements>
 </model>

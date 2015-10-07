@@ -22,7 +22,8 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
     @IBOutlet weak var expireRefundableButton: UIButton!
     @IBOutlet weak var expireDateButton: UIButton!
     @IBOutlet weak var collectButton: UIButton!
-    var index:NSNumber = 0
+    var indexForCollect:NSNumber = 0
+    var indexForRecent:NSNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
         listPriceLabel.text = "门店价￥" + NumberFormatStringTool.leaveNumberToTwoDecimal(deal.list_price)
         purchaseCountButton.setTitle("已出售\(deal.purchase_count)", forState: .Normal)
         
+        //剩余过期时间设置
         let deadlineStr = deal.purchase_deadline
         let format = NSDateFormatter()
         format.dateFormat = "yyyy-MM-dd"
@@ -52,7 +54,7 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
         let fetchRquest = NSFetchRequest(entityName: "CollectDealsTable")
         if let results = try! managedObjectContext.executeFetchRequest(fetchRquest) as? [CollectDealsTable] {
             if results.count > 0{
-                index = (results.last?.id)!
+                indexForCollect = (results.last?.id)!
             }
         }
         
@@ -60,6 +62,34 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
         fetchRquest.predicate = NSPredicate(format: "deal_id == %@", deal.deal_id)
         if managedObjectContext.countForFetchRequest(fetchRquest, error: nil) > 0{
             collectButton.selected = true
+        }
+        
+
+    }
+    
+    //保存阅读历史
+    func saveRecent(){
+        //查找数据，如果当前已经阅读历史里面，先删除数据
+        let fetchRquestRecent = NSFetchRequest(entityName: "RecentDealsTable")
+        fetchRquestRecent.predicate = NSPredicate(format: "deal_id == %@", deal.deal_id)
+        if let results = try! managedObjectContext.executeFetchRequest(fetchRquestRecent) as? [RecentDealsTable] {
+            if results.count > 0 {
+                let findDeal = results[0]
+                managedObjectContext.deleteObject(findDeal)
+            }
+        }
+        
+        //将最近浏览写入数据库
+        let entity = NSEntityDescription.entityForName("RecentDealsTable", inManagedObjectContext: managedObjectContext)
+        let recentDeals = RecentDealsTable(entity: entity!, insertIntoManagedObjectContext: managedObjectContext)
+        recentDeals.deal = deal
+        recentDeals.deal_id = deal.deal_id
+        recentDeals.desc = deal.desc
+        recentDeals.id = NSNumber(integer: indexForRecent.integerValue + 1)
+        do {
+            try managedObjectContext.save()
+        }catch{
+            print("无法保存")
         }
 
     }
@@ -96,6 +126,8 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
             refundableButton.selected = true
             expireRefundableButton.selected = true
         }
+        
+        saveRecent()
     }
 
     
@@ -120,7 +152,7 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
             collectDeals.deal = deal
             collectDeals.deal_id = deal.deal_id
             collectDeals.desc = deal.desc
-            collectDeals.id = NSNumber(integer: index.integerValue + 1)
+            collectDeals.id = NSNumber(integer: indexForCollect.integerValue + 1)
             do {
                 try managedObjectContext.save()
             }catch{
