@@ -1659,22 +1659,53 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="最近浏览" id="mFj-en-65i">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="3Ki-7a-ek1">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ex8-7d-IF2">
-                                <rect key="frame" x="20" y="7" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" image="icon_back"/>
-                                <state key="highlighted" image="icon_back_highlighted"/>
+                        <leftBarButtonItems>
+                            <barButtonItem style="plain" id="3Ki-7a-ek1">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ex8-7d-IF2">
+                                    <rect key="frame" x="20" y="7" width="84" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <state key="normal" image="icon_back"/>
+                                    <state key="highlighted" image="icon_back_highlighted"/>
+                                    <connections>
+                                        <action selector="backButtonClick:" destination="aCZ-b2-ytr" eventType="touchUpInside" id="wq2-Qd-OtO"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="  全不选  " id="SZb-ff-gZX">
+                                <color key="tintColor" red="0.30196078430000001" green="0.75686274509999996" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="backButtonClick:" destination="aCZ-b2-ytr" eventType="touchUpInside" id="wq2-Qd-OtO"/>
+                                    <action selector="deselectAllClick:" destination="aCZ-b2-ytr" id="dly-hU-rIO"/>
                                 </connections>
-                            </button>
+                            </barButtonItem>
+                            <barButtonItem title="  全选  " id="Ahd-Jt-kWn">
+                                <color key="tintColor" red="0.30196078430000001" green="0.75686274509999996" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="selectAllClick:" destination="aCZ-b2-ytr" id="yQB-9x-9FT"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" title="  删除  " id="J83-9m-27M">
+                                <color key="tintColor" red="0.30196078430000001" green="0.75686274509999996" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="delectItemClick:" destination="aCZ-b2-ytr" id="e1C-K9-J9d"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="编辑" id="EpB-Zy-71A">
+                            <color key="tintColor" red="0.30196078430000001" green="0.75686274509999996" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editItemClick:" destination="aCZ-b2-ytr" id="odu-ga-Rdc"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backItem" destination="3Ki-7a-ek1" id="RAj-ef-TpW"/>
+                        <outlet property="deleteItem" destination="J83-9m-27M" id="ByT-PX-eQM"/>
+                        <outlet property="deselectAllItem" destination="SZb-ff-gZX" id="nLq-Ry-Tjw"/>
+                        <outlet property="editItem" destination="EpB-Zy-71A" id="UDT-QI-syz"/>
                         <outlet property="layout" destination="LOj-5j-6OJ" id="PLF-Mc-8ha"/>
+                        <outlet property="selectAllItem" destination="Ahd-Jt-kWn" id="FVD-cf-1yJ"/>
                         <segue destination="dRZ-v2-DFX" kind="presentation" identifier="split" id="CR2-ao-bmS"/>
                     </connections>
                 </collectionViewController>

@@ -49,23 +49,45 @@ class DealCell: UICollectionViewCell {
         choosedImageView.hidden = !choosedImageView.hidden
         
         var anyOB = self.nextResponder()
-        while !(anyOB!.isKindOfClass(CollectViewController))  {
+        while !(anyOB!.isKindOfClass(CollectViewController )) && !(anyOB!.isKindOfClass(RecentViewController )){
             anyOB = anyOB?.nextResponder()
         }
-        let vc = anyOB as! CollectViewController
-        if deal.checking == true {
-            vc.selectCount++
-        }else{
-            vc.selectCount--
-        }
         
-        if vc.selectCount == 0 {
-            vc.deleteItem.enabled = false
-            vc.deleteItem.title = "  删除  "
+        if (anyOB as? CollectViewController != nil){
+            let vc = anyOB as! CollectViewController
+            
+            if deal.checking == true {
+                vc.selectCount++
+            }else{
+                vc.selectCount--
+            }
+            
+            if vc.selectCount == 0 {
+                vc.deleteItem.enabled = false
+                vc.deleteItem.title = "  删除  "
+            }else{
+                vc.deleteItem.enabled = true
+                vc.deleteItem.title = "  删除（\(vc.selectCount)）  "
+            }
         }else{
-            vc.deleteItem.enabled = true
-            vc.deleteItem.title = "  删除（\(vc.selectCount)）  "
+            let vc = anyOB as! RecentViewController
+            
+            if deal.checking == true {
+                vc.selectCount++
+            }else{
+                vc.selectCount--
+            }
+            
+            if vc.selectCount == 0 {
+                vc.deleteItem.enabled = false
+                vc.deleteItem.title = "  删除  "
+            }else{
+                vc.deleteItem.enabled = true
+                vc.deleteItem.title = "  删除（\(vc.selectCount)）  "
+            }
         }
+     
     }
+  
     
 }

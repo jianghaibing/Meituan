@@ -26,9 +26,9 @@ class CollectViewController: BaseCollectionViewController {
         fetchRequest.sortDescriptors = [sortDescriptor]
         if let results = try! managedObjectContext.executeFetchRequest(fetchRequest) as? [CollectDealsTable] {
             let dealsArray = NSMutableArray()
-            for (index,_) in results.enumerate() {
-                let deal = results[index].deal!
-                deal.desc = results[index].desc!
+            for result in results {
+                let deal = result.deal!
+                deal.desc = result.desc!
                 dealsArray.addObject(deal)
             }
             deals = dealsArray
@@ -77,6 +77,7 @@ class CollectViewController: BaseCollectionViewController {
         for deal in deals {
             (deal as! DealsModel).checking = false
         }
+        selectCount = 0
         deleteItem.enabled = false
         deleteItem.title = "  删除  "
         collectionView!.reloadData()
