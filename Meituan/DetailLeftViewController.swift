@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailLeftViewController: UIViewController,DPRequestDelegate {
+class DetailLeftViewController: UIViewController,DPRequestDelegate,UMSocialUIDelegate {
     
     var deal:DealsModel!
 
@@ -135,6 +135,12 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate {
     }
 
     @IBAction func shareButtonClick(sender: UIButton) {
+        
+        UMSocialConfig.setSupportedInterfaceOrientations(.Landscape)
+        
+        UMSocialData.defaultData().urlResource.setResourceType(UMSocialUrlResourceTypeImage, url: String(deal.image_url))
+        
+        UMSocialSnsService.presentSnsIconSheetView(splitViewController!, appKey: nil, shareText: deal.desc + "\(deal.deal_h5_url)", shareImage: nil, shareToSnsNames: [UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToQzone], delegate: self)
         
     }
     

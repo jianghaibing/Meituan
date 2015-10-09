@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectViewController: BaseCollectionViewController {
+class CollectViewController: BaseCollectionViewController,DealCellDelegate {
 
     @IBOutlet weak var backItem: UIBarButtonItem!
     @IBOutlet weak var selectAllItem: UIBarButtonItem!
@@ -128,6 +128,30 @@ class CollectViewController: BaseCollectionViewController {
         }
         selectCount = 0
         collectionView!.reloadData()
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! DealCell
+        let deal = deals[indexPath.item] as! DealsModel
+        cell.deal = deal
+        cell.delegate = self
+        return cell
+    }
+    
+    func cellDidClick(cell: DealCell) {
+        if cell.deal.checking == true {
+            selectCount++
+        }else{
+            selectCount--
+        }
+        
+        if selectCount == 0 {
+            deleteItem.enabled = false
+            deleteItem.title = "  删除  "
+        }else{
+            deleteItem.enabled = true
+            deleteItem.title = "  删除（\(selectCount)）  "
+        }
     }
     
 }

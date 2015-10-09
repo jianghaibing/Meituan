@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol DealCellDelegate{
+    func cellDidClick(cell:DealCell)
+}
+
+
 class DealCell: UICollectionViewCell {
     
     @IBOutlet weak var newDealIcon: UIImageView!
@@ -19,6 +24,8 @@ class DealCell: UICollectionViewCell {
     @IBOutlet weak var soldCountLabel: UILabel!
     @IBOutlet weak var coverButton: UIButton!
     @IBOutlet weak var choosedImageView: UIImageView!
+    
+    var delegate:DealCellDelegate!
     
     var deal:DealsModel!{
         didSet{
@@ -47,46 +54,7 @@ class DealCell: UICollectionViewCell {
     @IBAction func coverClick(sender: UIButton) {
         deal.checking = !(deal.checking ?? false)
         choosedImageView.hidden = !choosedImageView.hidden
-        
-        var anyOB = self.nextResponder()
-        while !(anyOB!.isKindOfClass(CollectViewController )) && !(anyOB!.isKindOfClass(RecentViewController )){
-            anyOB = anyOB?.nextResponder()
-        }
-        
-        if (anyOB as? CollectViewController != nil){
-            let vc = anyOB as! CollectViewController
-            
-            if deal.checking == true {
-                vc.selectCount++
-            }else{
-                vc.selectCount--
-            }
-            
-            if vc.selectCount == 0 {
-                vc.deleteItem.enabled = false
-                vc.deleteItem.title = "  删除  "
-            }else{
-                vc.deleteItem.enabled = true
-                vc.deleteItem.title = "  删除（\(vc.selectCount)）  "
-            }
-        }else{
-            let vc = anyOB as! RecentViewController
-            
-            if deal.checking == true {
-                vc.selectCount++
-            }else{
-                vc.selectCount--
-            }
-            
-            if vc.selectCount == 0 {
-                vc.deleteItem.enabled = false
-                vc.deleteItem.title = "  删除  "
-            }else{
-                vc.deleteItem.enabled = true
-                vc.deleteItem.title = "  删除（\(vc.selectCount)）  "
-            }
-        }
-     
+        delegate.cellDidClick(self)
     }
   
     

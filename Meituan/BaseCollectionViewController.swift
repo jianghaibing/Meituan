@@ -57,6 +57,7 @@ class BaseCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    
     //MARK:UICollectionDelegate
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectDeal = deals[indexPath.item] as? DealsModel
