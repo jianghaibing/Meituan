@@ -112,6 +112,8 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate,UMSocialUIDel
      
     }
     
+    
+    
     func request(request: DPRequest!, didFinishLoadingWithResult result: AnyObject!) {
         let dealDict = (result["deals"] as? NSArray)?.firstObject as? NSDictionary
         let dealTemp = DealsModel(keyValues: dealDict)
@@ -132,6 +134,8 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate,UMSocialUIDel
 
     @IBAction func buyButtonClick(sender: UIButton) {
         
+        AlipayRequestConfig.alipayWithPartner(kPartnerID, seller: kSellerAccount, tradeNO: AlipayToolKit.genTradeNoWithTime(), productName: deal.title, productDescription: deal.desc, amount: "\(deal.current_price.floatValue)", notifyURL: kNotifyURL, itBPay: "30m")
+
     }
 
     @IBAction func shareButtonClick(sender: UIButton) {

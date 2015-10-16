@@ -8,6 +8,12 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 #import "WXApi.h"
+#import "AlipayHeader.h"
+
+
+
+
+
 
 
 
