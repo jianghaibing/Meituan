@@ -63,7 +63,6 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate,UMSocialUIDel
         if managedObjectContext.countForFetchRequest(fetchRquest, error: nil) > 0{
             collectButton.selected = true
         }
-        
 
     }
     

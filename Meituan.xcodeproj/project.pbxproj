@@ -41,6 +41,10 @@
 		0928408E1BD14875005B753B /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 092840801BD14875005B753B /* libssl.a */; settings = {ASSET_TAGS = (); }; };
 		094CAB521BAE7D9900222767 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094CAB511BAE7D9900222767 /* Constant.swift */; settings = {ASSET_TAGS = (); }; };
 		094CAB561BAE7DF700222767 /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094CAB551BAE7DF700222767 /* ExtensionColor.swift */; settings = {ASSET_TAGS = (); }; };
+		097103A91BD29ECD0002D71D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097103A81BD29ECD0002D71D /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		097103AB1BD2A2210002D71D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097103AA1BD2A2210002D71D /* MapKit.framework */; };
+		097103AD1BD3D05F0002D71D /* BusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097103AC1BD3D05F0002D71D /* BusinessModel.swift */; settings = {ASSET_TAGS = (); }; };
+		097103B01BD3DAA80002D71D /* DealAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097103AF1BD3DAA80002D71D /* DealAnnotation.swift */; settings = {ASSET_TAGS = (); }; };
 		09740CDD1BBF943700D2D11E /* CenterlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740CDC1BBF943700D2D11E /* CenterlineLabel.swift */; settings = {ASSET_TAGS = (); }; };
 		09740CE01BC0370000D2D11E /* SearchDealsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740CDF1BC0370000D2D11E /* SearchDealsCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		09740CE21BC0FB9100D2D11E /* BaseDealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09740CE11BC0FB9100D2D11E /* BaseDealsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -243,6 +247,10 @@
 		092840801BD14875005B753B /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		094CAB511BAE7D9900222767 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		094CAB551BAE7DF700222767 /* ExtensionColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
+		097103A81BD29ECD0002D71D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		097103AA1BD2A2210002D71D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		097103AC1BD3D05F0002D71D /* BusinessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessModel.swift; sourceTree = "<group>"; };
+		097103AF1BD3DAA80002D71D /* DealAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealAnnotation.swift; sourceTree = "<group>"; };
 		0971709C1BADD56000D00C23 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		0971709D1BADD56000D00C23 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		09740CDC1BBF943700D2D11E /* CenterlineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterlineLabel.swift; sourceTree = "<group>"; };
@@ -351,6 +359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				097103AB1BD2A2210002D71D /* MapKit.framework in Frameworks */,
 				09947DB11BCE94E50036A684 /* CoreText.framework in Frameworks */,
 				09947DAF1BCE94D30036A684 /* QuartzCore.framework in Frameworks */,
 				0928408C1BD14875005B753B /* AlipaySDK.framework in Frameworks */,
@@ -402,6 +411,7 @@
 				09740CF01BC2C22300D2D11E /* DealDetail */,
 				09740CF61BC2C8FF00D2D11E /* Collect */,
 				09740CF81BC2C92500D2D11E /* Recent */,
+				097103A61BD29E920002D71D /* Map */,
 				091069531BA5B21F005F1AB5 /* Public */,
 				0910693D1BA58BFA005F1AB5 /* Main.storyboard */,
 				091069391BA58BFA005F1AB5 /* AppDelegate.swift */,
@@ -460,6 +470,7 @@
 				092699BF1BA84F7400E6A0B1 /* RegionsModel.swift */,
 				098945CC1BBD3B9600BC812E /* SortsModel.swift */,
 				09A494721BBEC8AA00856A81 /* DealsModel.swift */,
+				097103AC1BD3D05F0002D71D /* BusinessModel.swift */,
 				09740CFE1BC3EC7D00D2D11E /* RestrictionsModel.swift */,
 			);
 			name = Model;
@@ -636,6 +647,31 @@
 				09740D171BC502F400D2D11E /* NumberFormatStringTool.swift */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		097103A61BD29E920002D71D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				097103A71BD29EB10002D71D /* Controllers */,
+				097103AE1BD3DA4F0002D71D /* Model */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		097103A71BD29EB10002D71D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				097103A81BD29ECD0002D71D /* MapViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		097103AE1BD3DA4F0002D71D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				097103AF1BD3DAA80002D71D /* DealAnnotation.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		09740CE31BC284A300D2D11E /* AwesomeMenu */ = {
@@ -860,6 +896,7 @@
 		36DBA006D5550ED963CE2FE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				097103AA1BD2A2210002D71D /* MapKit.framework */,
 				09947DB01BCE94E50036A684 /* CoreText.framework */,
 				09947DAE1BCE94D30036A684 /* QuartzCore.framework */,
 				09DFD30B1BC803410092197D /* libz.tbd */,
@@ -1046,9 +1083,11 @@
 				09740CFD1BC3BE4600D2D11E /* DetailSplitViewController.swift in Sources */,
 				09E245F21BAF05D4002B22D0 /* Expression.swift in Sources */,
 				09E245CF1BAF02A6002B22D0 /* SearchResultTableViewController.swift in Sources */,
+				097103A91BD29ECD0002D71D /* MapViewController.swift in Sources */,
 				09740CEF1BC2B91100D2D11E /* BaseCollectionViewController.swift in Sources */,
 				092840871BD14875005B753B /* NSDataEx.m in Sources */,
 				09E245FA1BAF05D4002B22D0 /* View.swift in Sources */,
+				097103B01BD3DAA80002D71D /* DealAnnotation.swift in Sources */,
 				09E245EC1BAF05D4002B22D0 /* ConstraintGroup.swift in Sources */,
 				092840851BD14875005B753B /* DataVerifier.m in Sources */,
 				094CAB561BAE7DF700222767 /* ExtensionColor.swift in Sources */,
@@ -1065,6 +1104,7 @@
 				09740CF51BC2C31800D2D11E /* DetailRightViewController.swift in Sources */,
 				092840811BD14875005B753B /* AlipayRequestConfig.m in Sources */,
 				091069421BA58BFA005F1AB5 /* Meituan.xcdatamodeld in Sources */,
+				097103AD1BD3D05F0002D71D /* BusinessModel.swift in Sources */,
 				092840881BD14875005B753B /* openssl_wrapper.m in Sources */,
 				092699BE1BA84EA300E6A0B1 /* CityModel.swift in Sources */,
 				094CAB521BAE7D9900222767 /* Constant.swift in Sources */,

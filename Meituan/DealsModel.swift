@@ -22,6 +22,8 @@ class DealsModel: NSObject {
     var purchase_deadline:String!
     var deal_h5_url:NSURL!
     var restrictions:RestrictionsModel?
+    var businesses:NSMutableArray!
+    var categories:NSMutableArray!
     
     //是否进入编辑状态
     var editing:Bool?
@@ -30,6 +32,10 @@ class DealsModel: NSObject {
     
     override static func replacedKeyFromPropertyName() -> [NSObject : AnyObject]! {
         return ["desc":"description"]
+    }
+    
+    override static func objectClassInArray() -> [NSObject : AnyObject]! {
+        return ["businesses":BusinessModel.self]
     }
     
 }
