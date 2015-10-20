@@ -73,6 +73,7 @@
 		09A342FC1BB6EB1A00F91646 /* MetaDataTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A342FB1BB6EB1A00F91646 /* MetaDataTool.swift */; settings = {ASSET_TAGS = (); }; };
 		09A494731BBEC8AA00856A81 /* DealsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A494721BBEC8AA00856A81 /* DealsModel.swift */; settings = {ASSET_TAGS = (); }; };
 		09A494751BBED1AB00856A81 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A494741BBED1AB00856A81 /* DealCell.swift */; settings = {ASSET_TAGS = (); }; };
+		09D529831BD67CB200EAE73A /* CategoryViewControllerForMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D529821BD67CB200EAE73A /* CategoryViewControllerForMap.swift */; settings = {ASSET_TAGS = (); }; };
 		09D57C831BBD5709009495AB /* SortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D57C821BBD5709009495AB /* SortButton.swift */; settings = {ASSET_TAGS = (); }; };
 		09DFD2ED1BC801420092197D /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09DFD2C71BC801420092197D /* UMSocialLocalizable.strings */; settings = {ASSET_TAGS = (); }; };
 		09DFD2EE1BC801420092197D /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09DFD2D51BC801420092197D /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
@@ -286,6 +287,7 @@
 		09A342FB1BB6EB1A00F91646 /* MetaDataTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaDataTool.swift; sourceTree = "<group>"; };
 		09A494721BBEC8AA00856A81 /* DealsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsModel.swift; sourceTree = "<group>"; };
 		09A494741BBED1AB00856A81 /* DealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
+		09D529821BD67CB200EAE73A /* CategoryViewControllerForMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewControllerForMap.swift; sourceTree = "<group>"; };
 		09D57C821BBD5709009495AB /* SortButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortButton.swift; sourceTree = "<group>"; };
 		09DFD2C81BC801420092197D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		09DFD2CA1BC801420092197D /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
@@ -662,6 +664,7 @@
 			isa = PBXGroup;
 			children = (
 				097103A81BD29ECD0002D71D /* MapViewController.swift */,
+				09D529821BD67CB200EAE73A /* CategoryViewControllerForMap.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1116,6 +1119,7 @@
 				09E245E81BAF05D4002B22D0 /* Coefficients.swift in Sources */,
 				098945CD1BBD3B9600BC812E /* SortsModel.swift in Sources */,
 				09740D141BC4187800D2D11E /* RecentDealsTable+CoreDataProperties.swift in Sources */,
+				09D529831BD67CB200EAE73A /* CategoryViewControllerForMap.swift in Sources */,
 				09740D181BC502F400D2D11E /* NumberFormatStringTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

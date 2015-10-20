@@ -13,6 +13,11 @@ private let dealanno = "dealanno"
 
 class MapViewController: UIViewController,MKMapViewDelegate,DPRequestDelegate{
     
+    @IBOutlet weak var categoryLable: UILabel!
+    @IBOutlet weak var subcategoryLable: UILabel!
+    @IBOutlet weak var categoryIconButton: UIButton!
+    var selectCategoryName:String?
+    
     lazy var geocode = CLGeocoder()
     @IBOutlet weak var mapView: MKMapView!
     var city:String?
@@ -40,7 +45,10 @@ class MapViewController: UIViewController,MKMapViewDelegate,DPRequestDelegate{
             params["city"] = city
             params["latitude"] = mapView.centerCoordinate.latitude
             params["longitude"] = mapView.centerCoordinate.longitude
-            params["radius"] = 5000
+            params["radius"] = 1000
+            if let selectCategoryName = selectCategoryName {
+                params["category"] = selectCategoryName
+            }
             dpapi.requestWithURL("v1/deal/find_deals", params: params, delegate: self)
         }
     }
@@ -89,6 +97,23 @@ class MapViewController: UIViewController,MKMapViewDelegate,DPRequestDelegate{
         }
     }
 
+    @IBAction func unwindFromCategoryForMap(segue:UIStoryboardSegue){
+        let categoryVC = segue.sourceViewController as? CategoryViewControllerForMap
+        categoryLable.text = categoryVC?.selectedCategoryName
+        subcategoryLable.text = categoryVC?.selectedSubCategoryName
+        categoryIconButton.setImage(UIImage(named: categoryVC!.selectedIcon!), forState: .Normal)
+        categoryIconButton.setImage(UIImage(named: categoryVC!.selectedHHighlightedIcon!), forState: .Highlighted)
+        if categoryVC?.subCategories == nil || categoryVC?.selectedSubCategoryName == "全部" {
+            selectCategoryName = categoryVC?.selectedCategoryName
+        }else {
+            selectCategoryName = categoryVC?.selectedSubCategoryName
+        }
+        if selectCategoryName == "全部分类" {
+            selectCategoryName = nil
+        }
+        mapView.removeAnnotations(mapView.annotations)
+        mapView(mapView, regionDidChangeAnimated: true)
+    }
     
     @IBAction func backButtonClick(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -97,14 +122,5 @@ class MapViewController: UIViewController,MKMapViewDelegate,DPRequestDelegate{
     @IBAction func goToCurrentLocation(sender: UIButton) {
         mapView.setUserTrackingMode(.Follow, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

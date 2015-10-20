@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class CategoryViewControllerForMap: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     var categories:NSMutableArray?
     @IBOutlet weak var tableOne: UITableView!
@@ -83,13 +83,13 @@ class CategoryViewController: UIViewController,UITableViewDataSource,UITableView
             selectedIcon = selectedCategory?.icon
             selectedHHighlightedIcon = selectedCategory?.highlighted_icon
             if subCategories == nil {
-                performSegueWithIdentifier("unwindFromCategory", sender: self)
+                performSegueWithIdentifier("unwindFromCategoryForMap", sender: self)
             }
             
         }else{
             subCategories = selectedCategory?.subcategories
             selectedSubCategoryName = subCategories![indexPath.row]
-            performSegueWithIdentifier("unwindFromCategory", sender: self)
+            performSegueWithIdentifier("unwindFromCategoryForMap", sender: self)
         }
     }
     
