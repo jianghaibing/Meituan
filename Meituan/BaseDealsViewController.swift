@@ -68,15 +68,17 @@ class BaseDealsViewController: BaseCollectionViewController,DPRequestDelegate {
     
     //MARK: - 请求数据完成的回调
     func request(request: DPRequest!, didFailWithError error: NSError!) {
-        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        hud.mode = .Text
-        hud.labelText = "数据请求错误，请稍后再试"
-        hud.hide(true, afterDelay: 2)
-        collectionView!.footer.endRefreshing()
-        collectionView!.header.endRefreshing()
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
-        if currentPage > 1 {//如果上拉加载失败，页面减回去
-            currentPage--
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            hud.mode = .Text
+            hud.labelText = "数据请求错误，请稍后再试"
+            hud.hide(true, afterDelay: 2)
+            self.collectionView!.footer.endRefreshing()
+            self.collectionView!.header.endRefreshing()
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            if self.currentPage > 1 {//如果上拉加载失败，页面减回去
+                self.currentPage--
+            }
         }
     }
     
@@ -89,25 +91,27 @@ class BaseDealsViewController: BaseCollectionViewController,DPRequestDelegate {
         }
         let newDeals = DealsModel.objectArrayWithKeyValuesArray(result["deals"])
         deals.addObjectsFromArray(newDeals as [AnyObject])
-        collectionView?.reloadData()
-        //请求数据完成需要结束刷新
-        collectionView!.footer.endRefreshing()
-        collectionView!.header.endRefreshing()
-        
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
-        
-        //没有更多数据时隐藏上拉加载更多控件
-        if result["total_count"] as! Int == deals.count {
-            collectionView!.footer.hidden = true
-        }
-        
-        //没有数据时显示
-        if deals.count == 0 {
-            collectionView!.header.hidden = true
-            nodataView.hidden = false
-        }else{
-            collectionView!.header.hidden = false
-            nodataView.hidden = true
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            self.collectionView?.reloadData()
+            //请求数据完成需要结束刷新
+            self.collectionView!.footer.endRefreshing()
+            self.collectionView!.header.endRefreshing()
+            
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            
+            //没有更多数据时隐藏上拉加载更多控件
+            if result["total_count"] as! Int == self.deals.count {
+                self.collectionView!.footer.hidden = true
+            }
+            
+            //没有数据时显示
+            if self.deals.count == 0 {
+                self.collectionView!.header.hidden = true
+                self.nodataView.hidden = false
+            }else{
+                self.collectionView!.header.hidden = false
+                self.nodataView.hidden = true
+            }
         }
     }
 

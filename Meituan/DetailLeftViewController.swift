@@ -103,11 +103,13 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate,UMSocialUIDel
     
     //MARK: - 请求数据完成的回调
     func request(request: DPRequest!, didFailWithError error: NSError!) {
-        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        hud.mode = .Text
-        hud.labelText = "数据请求错误，请稍后再试"
-        hud.hide(true, afterDelay: 2)
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            hud.mode = .Text
+            hud.labelText = "数据请求错误，请稍后再试"
+            hud.hide(true, afterDelay: 2)
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+        }
      
     }
     
@@ -118,8 +120,10 @@ class DetailLeftViewController: UIViewController,DPRequestDelegate,UMSocialUIDel
         let dealTemp = DealsModel(keyValues: dealDict)
         deal.restrictions = dealTemp.restrictions
         if deal.restrictions?.is_refundable == 0 {
-            refundableButton.selected = true
-            expireRefundableButton.selected = true
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                self.refundableButton.selected = true
+                self.expireRefundableButton.selected = true
+            })
         }
         
         saveRecent()

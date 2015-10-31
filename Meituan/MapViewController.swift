@@ -25,7 +25,6 @@ class MapViewController: UIViewController,MKMapViewDelegate,DPRequestDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.userTrackingMode = .Follow
-        
     }
     
     //MARK: - Map的代理方法
@@ -68,11 +67,14 @@ class MapViewController: UIViewController,MKMapViewDelegate,DPRequestDelegate{
     
     //MARK: - 请求数据完成的回调
     func request(request: DPRequest!, didFailWithError error: NSError!) {
-        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        hud.mode = .Text
-        hud.labelText = "数据请求错误，请稍后再试"
-        hud.hide(true, afterDelay: 2)
-       
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            
+            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            hud.mode = .Text
+            hud.labelText = "数据请求错误，请稍后再试"
+            hud.hide(true, afterDelay: 2)
+            
+        }
     }
     
     func request(request: DPRequest!, didFinishLoadingWithResult result: AnyObject!) {
@@ -92,7 +94,10 @@ class MapViewController: UIViewController,MKMapViewDelegate,DPRequestDelegate{
                 }
                 let annos = mapView.annotations as NSArray
                 if annos.containsObject(anno) {break}
-                mapView.addAnnotation(anno)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    
+                    self.mapView.addAnnotation(anno)
+                })
             }
         }
     }
